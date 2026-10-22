@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dodecahedron Help · Touchstone Commerce</title>
+  <meta name="description" content="Set up Dodecahedron: fulfillment, 3PL rules, returns, inventory and reporting.">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="8" fill="currentColor"/><path d="M10 20 22 12" style="stroke: var(--bg)" stroke-width="2.6" stroke-linecap="round"/></svg>
+        Touchstone Commerce
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/dodecahedron/">Dodecahedron</a>
+        <a href="/dodecahedron/help/" aria-current="page">Help</a>
+        <a href="mailto:support@touchstonecommerce.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap narrow doc">
+    <span class="eyebrow">Dodecahedron help</span>
+    <h1>Setup guide</h1>
+    <p class="lede">Everything you need to run mystery products with Dodecahedron. Stuck? Email <a href="mailto:support@touchstonecommerce.com">support@touchstonecommerce.com</a>.</p>
+
+    <nav class="toc" aria-label="On this page">
+      <ul>
+        <li><a href="#start">Getting started</a></li>
+        <li><a href="#fulfillment">Choosing how you fulfill</a></li>
+        <li><a href="#3pl">Setting up your 3PL</a></li>
+        <li><a href="#other-apps">Accounting, ERP and Flow</a></li>
+        <li><a href="#returns">Cancellations and returns</a></li>
+        <li><a href="#inventory">How inventory works</a></li>
+        <li><a href="#reports">Reports and reconciliation</a></li>
+      </ul>
+    </nav>
+
+    <h2 id="start">Getting started</h2>
+    <ol>
+      <li>Install Dodecahedron and answer one question: do you pack orders yourself, or does a 3PL ship them?</li>
+      <li>Create a mystery product. Give it a name and price, choose whether shoppers pick an option such as size, and set the swap quantity: 1 for a mystery item, or more for a mystery bundle.</li>
+      <li>Build its pool. Hand-pick products, or choose a collection or tag to make a smart pool that updates itself.</li>
+      <li>Choose the location it ships from. The pool's stock must be at that location, or the mystery product shows as sold out.</li>
+    </ol>
+    <p>Dodecahedron creates the mystery product in your store with SKUs starting <code>MYS-</code> and keeps its stock in step with the pool. Publish it to your storefront like any other product.</p>
+
+    <h2 id="fulfillment">Choosing how you fulfill</h2>
+    <h3>In-house (you pack and ship)</h3>
+    <p>The shopper's order keeps only the mystery product, so it stays a surprise. Open the mystery product in Dodecahedron to see which item to pack for each order. The order is tagged <code>mystery-swap</code>, and the pick is saved on the order for your staff.</p>
+    <h3>Third-party (a 3PL ships)</h3>
+    <p>Within seconds of checkout, Dodecahedron tags the shopper's order <code>mystery-consolidated</code> and puts it on hold. It then creates an internal order named like <code>#1001-mystery</code>, priced at $0, with every item in one box: the picked items plus anything else the shopper bought. Your 3PL ships that order. Tracking is copied back to the shopper's order, which notifies the shopper as usual.</p>
+    <ul>
+      <li><strong>Unpaid orders wait.</strong> The internal order is created only once the order is paid.</li>
+      <li><strong>Fraud checks are respected.</strong> Orders that Shopify flags for review wait for you to approve them. High-risk orders are never sent.</li>
+      <li><strong>Address changes carry over</strong> to the internal order until it ships.</li>
+      <li><strong>Split shipments</strong> are mirrored parcel by parcel, each with its own tracking.</li>
+    </ul>
+
+    <h2 id="3pl">Setting up your 3PL</h2>
+    <p>Most 3PLs import every new Shopify order. Before your first mystery order, set up these rules in your 3PL's order import settings:</p>
+    <ol>
+      <li><strong>Required:</strong> skip (don't import) orders tagged <code>mystery-consolidated</code>. Without this rule, your 3PL would receive both orders, and the shopper's other items would ship twice.</li>
+      <li><strong>Recommended:</strong> blacklist SKUs starting with <code>MYS-</code>. Mystery products aren't physical stock, so this stops your 3PL from flagging them as unknown or out of stock.</li>
+      <li><strong>International orders:</strong> set customs values for mystery shipments in your 3PL. The internal order is priced at $0, so customs forms built from it would declare nothing.</li>
+    </ol>
+    <p class="muted">Not sure how? Ask your 3PL account manager for an "order import exclusion by tag" and a "SKU blacklist". Most 3PLs set these up in a few minutes.</p>
+
+    <h2 id="other-apps">Accounting, ERP and Flow</h2>
+    <p>The internal <code>-mystery</code> orders exist only to ship the box. The sale is already on the shopper's order, so keep the internal orders out of anything that counts sales:</p>
+    <ul>
+      <li><strong>Accounting and ERP connectors:</strong> exclude orders tagged <code>mystery-shadow</code>, or with the order source <code>mystery-fulfillment</code>, from sales sync.</li>
+      <li><strong>Shopify Flow and staff alerts:</strong> skip the same orders, so "new order" emails and similar automations don't fire twice.</li>
+    </ul>
+    <p>For developers and integrations, Dodecahedron also saves a machine-readable record on each mystery order (field <code>mystery</code> in the app's namespace) listing its internal order and the real items shipped, with SKUs and unit costs.</p>
+
+    <h2 id="returns">Cancellations and returns</h2>
+    <h3>Cancellations</h3>
+    <p>Cancel the shopper's order in Shopify as usual. Dodecahedron cancels the internal order if it hasn't shipped and puts the picked items back in stock. If the box already left, the order is flagged so you can follow up.</p>
+    <h3>Returns</h3>
+    <p>Refund the shopper's order, not the <code>-mystery</code> order, and tick <strong>Restock</strong>.</p>
+    <ul>
+      <li><strong>Everything came back:</strong> Dodecahedron restocks the real items automatically.</li>
+      <li><strong>Only part of a bundle came back:</strong> Shopify's refund doesn't say which items returned. The order shows "Return received" on the mystery product's page. Click <strong>Mark returned</strong> next to each item that's back on the shelf, using the SKUs your 3PL reports. If nothing will go back in stock, for example because it arrived damaged, choose <strong>Dismiss</strong>.</li>
+    </ul>
+
+    <h2 id="inventory">How inventory works</h2>
+    <ul>
+      <li><strong>The mystery product's stock</strong> is the number of complete mystery orders the pool can fill at its location. It updates after every order and pool change.</li>
+      <li><strong>Picked items</strong> are removed from stock the moment the order comes in. Your inventory history shows the adjustment with a reference to the order.</li>
+      <li><strong>Internal <code>-mystery</code> orders don't change inventory.</strong> The items were already removed when the shopper ordered.</li>
+      <li><strong>Restocks</strong> from cancellations and returns are recorded with reason "Restock" and a reference to the shopper's order.</li>
+    </ul>
+
+    <h2 id="reports">Reports and reconciliation</h2>
+    <p><strong>Sales report:</strong> Dodecahedron's home page shows mystery revenue, orders, units cleared and cost recovered over the last 60 days.</p>
+    <p><strong>Reconciliation:</strong> lists every item shipped from a mystery order with its date, mystery SKU, share of the revenue, SKU shipped, unit cost, internal order, tracking and status. Unit costs are captured at the time of sale. Download it as CSV for your books.</p>
+    <p class="muted">Shopify gives apps the last 60 days of orders, so reports cover that window.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Touchstone Commerce LLC</span>
+      <nav aria-label="Footer">
+        <a href="/dodecahedron/">Dodecahedron</a>
+        <a href="/dodecahedron/help/">Help</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:support@touchstonecommerce.com">support@touchstonecommerce.com</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
