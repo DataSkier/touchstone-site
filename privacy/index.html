@@ -28,7 +28,7 @@
   <main class="wrap narrow doc">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: October 22, 2026</p>
+    <p class="muted">Last updated: October 23, 2026</p>
 
     <p>
       Touchstone Commerce LLC ("Touchstone", "we", "us") makes Dodecahedron, an app for Shopify merchants. This policy
@@ -97,6 +97,11 @@
       <li>To bill for the app through Shopify's billing system.</li>
     </ul>
     <p>We use data only for these purposes. We do not sell data, share it for advertising, or use it to build profiles of shoppers.</p>
+    <p>
+      <strong>Artificial intelligence:</strong> Dodecahedron has no AI features. We don't send store or customer data to
+      any AI service, and we don't use it to train AI models. If that ever changes, we'll update this policy and tell
+      merchants first.
+    </p>
 
     <h2>Who we share data with</h2>
     <ul>
@@ -107,11 +112,29 @@
     </ul>
     <p>A merchant's 3PL or warehouse receives the internal shipping orders through the merchant's own connection to Shopify, not from us.</p>
 
+    <h2>How we process order notifications</h2>
+    <p>
+      Shopify notifies Dodecahedron when an order is placed or changes. Those notifications include customer details, but
+      we don't store them. Our processing queue keeps only the order's ID. When the app processes the order, it fetches
+      the specific fields it needs from Shopify at that moment. Our logs record order IDs, counts and error codes, never
+      customer details.
+    </p>
+
     <h2>How long we keep data</h2>
+    <table>
+      <thead><tr><th>Data</th><th>How long we keep it</th></tr></thead>
+      <tbody>
+        <tr><td>Store settings, mystery products and pools</td><td>While the app is installed. Deleted when Shopify asks us to erase the store's data, 48 hours after the merchant uninstalls.</td></tr>
+        <tr><td>Mystery order records (order IDs and numbers, items shipped, SKUs, unit costs, tracking numbers)</td><td>180 days after the order, then deleted automatically.</td></tr>
+        <tr><td>Processing queue entries (order IDs only)</td><td>7 days after processing, or 30 days if processing failed.</td></tr>
+        <tr><td>Audit records of sensitive actions (the action, the order ID, and the staff member's Shopify user ID)</td><td>1 year.</td></tr>
+        <tr><td>Shoppers' names and addresses</td><td>Never stored. They're copied from one order to another inside the merchant's Shopify store.</td></tr>
+        <tr><td>The store's access token</td><td>Deleted as soon as the merchant uninstalls.</td></tr>
+      </tbody>
+    </table>
     <ul>
-      <li><strong>While the app is installed,</strong> we keep store data for as long as the merchant uses the features that need it. Reports cover the most recent 60 days of orders.</li>
-      <li><strong>When the merchant uninstalls,</strong> we delete the store's access token right away. When Shopify asks us to erase the store's data, which it does 48 hours after uninstalling, we delete all remaining data we hold about that store.</li>
       <li><strong>When a shopper asks a store to erase their data,</strong> Shopify passes the request to us, and we delete the records we hold about that shopper's orders.</li>
+      <li><strong>Backups:</strong> our database backups are encrypted and allow recovery for up to 7 days, so deleted data can remain in a backup for up to 7 days after deletion before it's gone for good.</li>
     </ul>
 
     <h2>How we protect data</h2>
