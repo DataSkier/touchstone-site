@@ -69,6 +69,14 @@ p { margin: 0 0 1em; }
 .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
 .muted { color: var(--muted); }
 
+/* Dictionary-entry hero */
+.definition { max-width: 680px; }
+.definition h1 { font-size: clamp(2.8rem, 8vw, 4.6rem); margin-bottom: 0.1em; }
+.pron { font-family: var(--serif); font-size: 1.15rem; color: var(--muted); padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.pron b { font-weight: 600; color: var(--text); }
+.pron i { margin-left: 0.4em; }
+.sense { font-family: var(--serif); font-size: 1.45rem; line-height: 1.45; margin-bottom: 28px; }
+
 /* Sections */
 .hero { padding: 88px 0 56px; }
 .section { padding: 32px 0; }
