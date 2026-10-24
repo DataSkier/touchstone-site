@@ -65,7 +65,7 @@
           <td>Yes. For payment and fraud status, we store only whether an order is waiting to ship, and why</td>
         </tr>
         <tr>
-          <td>The shopper's shipping name and address on mystery orders (third-party fulfillment only)</td>
+          <td>The shopper's shipping name, address and phone number on mystery orders (third-party fulfillment only)</td>
           <td>To create the internal shipping order that the merchant's warehouse uses to deliver the box, and to keep its address up to date</td>
           <td><strong>No.</strong> It is copied directly from one order to another inside the merchant's Shopify store, and never saved in our systems</td>
         </tr>
@@ -77,8 +77,8 @@
       </tbody>
     </table>
     <p>
-      <strong>We do not collect or store</strong> shoppers' email addresses, phone numbers, payment details or browsing
-      activity, and we do not store shoppers' names or addresses. Dodecahedron does not place cookies or tracking code on
+      <strong>We do not collect or store</strong> shoppers' email addresses, payment details or browsing
+      activity, and we do not store shoppers' names, addresses or phone numbers. Dodecahedron does not place cookies or tracking code on
       the merchant's storefront.
     </p>
 
@@ -128,7 +128,7 @@
         <tr><td>Mystery order records (order IDs and numbers, items shipped, SKUs, unit costs, tracking numbers)</td><td>180 days after the order, then deleted automatically. If the merchant uninstalls, deleted with the rest of the store's data 48 hours later, whatever their age.</td></tr>
         <tr><td>Processing queue entries (order IDs only)</td><td>7 days after processing, or 30 days if processing failed (or 48 hours after uninstall, if sooner).</td></tr>
         <tr><td>Audit records of sensitive actions (the action, the order ID, and the staff member's Shopify user ID)</td><td>1 year, or 48 hours after uninstall if sooner. We keep only a counts-only record that the store's data was erased.</td></tr>
-        <tr><td>Shoppers' names and addresses</td><td>Never stored. They're copied from one order to another inside the merchant's Shopify store.</td></tr>
+        <tr><td>Shoppers' names, addresses and phone numbers</td><td>Never stored. They're copied from one order to another inside the merchant's Shopify store.</td></tr>
         <tr><td>The store's access token</td><td>Deleted as soon as the merchant uninstalls.</td></tr>
       </tbody>
     </table>
