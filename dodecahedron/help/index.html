@@ -35,7 +35,7 @@
         <li><a href="#start">Getting started</a></li>
         <li><a href="#fulfillment">Choosing how you fulfill</a></li>
         <li><a href="#3pl">Setting up your 3PL</a></li>
-        <li><a href="#other-apps">Accounting, ERP and Flow</a></li>
+        <li><a href="#other-apps">Other apps that read your orders</a></li>
         <li><a href="#returns">Cancellations and returns</a></li>
         <li><a href="#inventory">How inventory works</a></li>
         <li><a href="#reports">Reports and reconciliation</a></li>
@@ -44,7 +44,7 @@
 
     <h2 id="start">Getting started</h2>
     <ol>
-      <li>Install Dodecahedron and answer one question: do you pack orders yourself, or does a 3PL ship them?</li>
+      <li>Install Dodecahedron and answer one question: does your own team ship your orders, or a 3PL?</li>
       <li>Create a mystery product. Give it a name and price, choose whether shoppers pick an option such as size, and set the swap quantity: 1 for a mystery item, or more for a mystery bundle.</li>
       <li>Build its pool. Hand-pick products, or choose a collection or tag to make a smart pool that updates itself.</li>
       <li>Choose the location it ships from. The pool's stock must be at that location, or the mystery product shows as sold out.</li>
@@ -52,16 +52,22 @@
     <p>Dodecahedron creates the mystery product in your store with SKUs starting <code>MYS-</code> and keeps its stock in step with the pool. Publish it to your storefront like any other product.</p>
 
     <h2 id="fulfillment">Choosing how you fulfill</h2>
-    <h3>In-house (you pack and ship)</h3>
-    <p>The shopper's order keeps only the mystery product, so it stays a surprise. Open the mystery product in Dodecahedron to see which item to pack for each order. The order is tagged <code>mystery-swap</code>, and the pick is saved on the order for your staff.</p>
+    <p>Within seconds of checkout, Dodecahedron tags the shopper's order <code>mystery-consolidated</code> and puts it on hold. It then creates an internal order named like <code>#1001-mystery</code>, priced at $0, with every item in one box: the picked items plus anything else the shopper bought. Ship that order, and its tracking is copied back to the shopper's order, which notifies the shopper as usual. The shopper only ever sees the mystery product.</p>
+    <h3>In-house (recommended)</h3>
+    <p>Your team ships the <code>-mystery</code> order. Its packing slip lists the real items, and your accounting and inventory apps see exactly what shipped.</p>
     <h3>Third-party (a 3PL ships)</h3>
-    <p>Within seconds of checkout, Dodecahedron tags the shopper's order <code>mystery-consolidated</code> and puts it on hold. It then creates an internal order named like <code>#1001-mystery</code>, priced at $0, with every item in one box: the picked items plus anything else the shopper bought. Your 3PL ships that order. Tracking is copied back to the shopper's order, which notifies the shopper as usual.</p>
+    <p>Your 3PL ships the <code>-mystery</code> order. It needs one import rule first: see <a href="#3pl">Setting up your 3PL</a>.</p>
+    <h3>Hidden only (for very small shops)</h3>
+    <p>No internal order. The shopper's order keeps only the mystery product, and you look up the item to pack in Dodecahedron. Choose this only if one person packs every order and you don't sync orders to accounting or inventory software: those apps would see a mystery product sold, but not which item shipped.</p>
+    <p>With in-house and third-party fulfillment:</p>
     <ul>
       <li><strong>Unpaid orders wait.</strong> The internal order is created only once the order is paid.</li>
       <li><strong>Fraud checks are respected.</strong> Orders that Shopify flags for review wait for you to approve them. High-risk orders are never sent.</li>
       <li><strong>Address changes carry over</strong> to the internal order until it ships.</li>
       <li><strong>Split shipments</strong> are mirrored parcel by parcel, each with its own tracking.</li>
+      <li><strong>Order numbers skip.</strong> Each internal order takes the next order number, so the next shopper's order skips one (for example #1001, then #1003). Shoppers don't see the internal orders.</li>
     </ul>
+    <p class="muted">You can change how you fulfill at any time in Dodecahedron's setup page. Orders already placed ship the way they started.</p>
 
     <h2 id="3pl">Setting up your 3PL</h2>
     <p>Most 3PLs import every new Shopify order. Before your first mystery order, set up these rules in your 3PL's order import settings:</p>
@@ -72,11 +78,12 @@
     </ol>
     <p class="muted">Not sure how? Ask your 3PL account manager for an "order import exclusion by tag" and a "SKU blacklist". Most 3PLs set these up in a few minutes.</p>
 
-    <h2 id="other-apps">Accounting, ERP and Flow</h2>
+    <h2 id="other-apps">Other apps that read your orders</h2>
     <p>The internal <code>-mystery</code> orders exist only to ship the box. The sale is already on the shopper's order, so keep the internal orders out of anything that counts sales:</p>
     <ul>
       <li><strong>Accounting and ERP connectors:</strong> exclude orders tagged <code>mystery-shadow</code>, or with the order source <code>mystery-fulfillment</code>, from sales sync.</li>
       <li><strong>Shopify Flow and staff alerts:</strong> skip the same orders, so "new order" emails and similar automations don't fire twice.</li>
+      <li><strong>Shipping and label apps</strong> (ShipStation and similar): skip orders tagged <code>mystery-consolidated</code>. Those are the held originals; ship the <code>-mystery</code> order.</li>
     </ul>
     <p>For developers and integrations, Dodecahedron also saves a machine-readable record on each mystery order (field <code>mystery</code> in the app's namespace) listing its internal order and the real items shipped, with SKUs and unit costs.</p>
 
@@ -87,7 +94,7 @@
     <p>Refund the shopper's order, not the <code>-mystery</code> order, and tick <strong>Restock</strong>.</p>
     <ul>
       <li><strong>Everything came back:</strong> Dodecahedron restocks the real items automatically.</li>
-      <li><strong>Only part of a bundle came back:</strong> Shopify's refund doesn't say which items returned. The order shows "Return received" on the mystery product's page. Click <strong>Mark returned</strong> next to each item that's back on the shelf, using the SKUs your 3PL reports. If nothing will go back in stock, for example because it arrived damaged, choose <strong>Dismiss</strong>.</li>
+      <li><strong>Only part of a bundle came back:</strong> Shopify's refund doesn't say which items returned. The order shows "Return received" on the mystery product's page. Click <strong>Mark returned</strong> next to each item that's back on the shelf, using the SKUs on the returned items or your 3PL's return report. If nothing will go back in stock, for example because it arrived damaged, choose <strong>Dismiss</strong>.</li>
     </ul>
 
     <h2 id="inventory">How inventory works</h2>

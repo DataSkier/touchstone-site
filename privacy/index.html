@@ -65,8 +65,8 @@
           <td>Yes. For payment and fraud status, we store only whether an order is waiting to ship, and why</td>
         </tr>
         <tr>
-          <td>The shopper's shipping name, address and phone number on mystery orders (third-party fulfillment only)</td>
-          <td>To create the internal shipping order that the merchant's warehouse uses to deliver the box, and to keep its address up to date</td>
+          <td>The shopper's shipping name, address and phone number on mystery orders (not used when the merchant chooses hidden-only fulfillment)</td>
+          <td>To create the internal shipping order that the merchant's team or warehouse uses to deliver the box, and to keep its address up to date</td>
           <td><strong>No.</strong> It is copied directly from one order to another inside the merchant's Shopify store, and never saved in our systems</td>
         </tr>
         <tr>
@@ -85,7 +85,7 @@
     <h3>Data we write to the merchant's store</h3>
     <p>
       To do its job, Dodecahedron writes to the merchant's store: it adjusts inventory, creates and updates the mystery
-      product, creates internal shipping orders for third-party fulfillment, adds tags and staff-only notes to orders, and
+      product, creates internal shipping orders, adds tags and staff-only notes to orders, and
       saves app records on orders that list the items picked. This data lives in the merchant's Shopify store and is
       governed by Shopify's privacy policy and the merchant's own.
     </p>
