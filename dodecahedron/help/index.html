@@ -99,7 +99,7 @@
 
     <h2 id="inventory">How inventory works</h2>
     <ul>
-      <li><strong>The mystery product's stock</strong> is the number of complete mystery orders the pool can fill at its location. It updates after every order and pool change.</li>
+      <li><strong>The mystery product's stock</strong> is the number of complete mystery orders the pool can fill at its location. It updates after every mystery order and pool change, and whenever a pool item's stock changes in Shopify, for example after a regular sale.</li>
       <li><strong>Picked items</strong> are removed from stock the moment the order comes in. Your inventory history shows the adjustment with a reference to the order.</li>
       <li><strong>Internal <code>-mystery</code> orders don't change inventory.</strong> The items were already removed when the shopper ordered.</li>
       <li><strong>Restocks</strong> from cancellations and returns are recorded with reason "Restock" and a reference to the shopper's order.</li>
