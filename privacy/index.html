@@ -50,7 +50,7 @@
       <thead><tr><th>Data</th><th>Why we use it</th><th>Do we store it?</th></tr></thead>
       <tbody>
         <tr>
-          <td>Store details: store domain, currency, locations, and an access token issued by Shopify</td>
+          <td>Store details: store domain, currency, locations, shipping profiles (read only, not stored), and an access token issued by Shopify</td>
           <td>To connect to the store and run the app</td>
           <td>Yes</td>
         </tr>
@@ -60,7 +60,7 @@
           <td>Yes, for products in a pool</td>
         </tr>
         <tr>
-          <td>Mystery orders: order and line item IDs, order numbers, the items picked, SKUs, unit costs, payment and fraud-review status, fulfillment status, tracking numbers and refunds</td>
+          <td>Mystery orders: order and line item IDs, order numbers, the items picked, SKUs, unit costs, payment and fraud-review status, fulfillment status, tracking numbers, refunds and returns (which lines are coming back)</td>
           <td>To fill, ship, cancel and return mystery orders, and to produce sales and reconciliation reports</td>
           <td>Yes. For payment and fraud status, we store only whether an order is waiting to ship, and why</td>
         </tr>

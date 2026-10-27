@@ -91,11 +91,17 @@
     <h3>Cancellations</h3>
     <p>Cancel the shopper's order in Shopify as usual. Dodecahedron cancels the internal order if it hasn't shipped and puts the picked items back in stock. If the box already left, the order is flagged so you can follow up.</p>
     <h3>Returns</h3>
+    <p>When a shopper or a returns app (Loop, Happy Returns, Redo and similar) requests a return on a mystery order, Dodecahedron tags the order <code>mystery-return</code> and adds a note listing the real items coming back, their SKUs, the weight for the return label, and the <code>-mystery</code> order they shipped on.</p>
     <p>Refund the shopper's order, not the <code>-mystery</code> order, and tick <strong>Restock</strong>.</p>
     <ul>
       <li><strong>Everything came back:</strong> Dodecahedron restocks the real items automatically.</li>
       <li><strong>Only part of a bundle came back:</strong> Shopify's refund doesn't say which items returned. The order shows "Return received" on the mystery product's page. Click <strong>Mark returned</strong> next to each item that's back on the shelf, using the SKUs on the returned items or your 3PL's return report. If nothing will go back in stock, for example because it arrived damaged, choose <strong>Dismiss</strong>.</li>
+      <li><strong>Your 3PL updates Shopify stock itself:</strong> 3PLs connected as a fulfillment service (ShipMonk, ShipBob and similar) count returned items into Shopify when they receive them, so Dodecahedron doesn't restock them too. If your 3PL is connected as a regular location and also syncs returns, tick <strong>My 3PL updates Shopify stock when it receives returns</strong> in Fulfillment setup.</li>
     </ul>
+    <h3>Mystery product shows as sold out at a 3PL location</h3>
+    <p>Shopify only sells stock online from locations in the product's shipping profile, and 3PL app locations (for example ShipMonk or ShipBob) aren't added automatically. In <strong>Settings → Shipping and delivery</strong>, open your shipping profile (usually General) and add the 3PL location under <strong>Fulfillment locations</strong>. If your shipping is managed in Markets, click <strong>Switch back</strong> on that page first.</p>
+    <h3>Returns at a 3PL</h3>
+    <p>Returns apps send your 3PL the shopper's order, so the return lists a mystery SKU (starting <code>MYS-</code>) that your 3PL doesn't stock. Ask your 3PL to receive those returns against the matching <code>-mystery</code> order: a return on #1001 is received against #1001-mystery, which lists the items that shipped.</p>
 
     <h2 id="inventory">How inventory works</h2>
     <ul>
