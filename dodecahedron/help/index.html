@@ -47,10 +47,10 @@
     <p>A mystery item sells one surprise item from a pool of your products. It's available on every plan, including Free.</p>
     <ol>
       <li>Install Dodecahedron and answer one question: does your own team ship your orders, or a 3PL?</li>
-      <li>Create a mystery product. Give it a name and price, and choose whether shoppers pick an option such as size. Leave <strong>Items per box</strong> at 1.</li>
-      <li>Choose the location it ships from. The pool's stock must be at that location, or the mystery product shows as sold out.</li>
-      <li>Build its pool by hand-picking products. Dead and slow stock at that location is pre-selected.</li>
-      <li>Open the mystery product and click <strong>Simulate</strong> under Preview a box to see what a customer could get.</li>
+      <li>Create a mystery product. Give it a name and price, and leave <strong>Items per box</strong> at 1.</li>
+      <li>Build its pool: tick products in the list, narrowing it by collection, tag or search. To let shoppers pick an option such as size, choose it as the <strong>Variant type</strong>.</li>
+      <li>Choose the location it ships from. Each location shows how many boxes the pool can fill there; the pool's stock must be at that location, or the mystery product shows as sold out.</li>
+      <li>Click <strong>Simulate</strong> under Picking to see what a customer could get, then <strong>Create as draft</strong>.</li>
     </ol>
     <p>Dodecahedron creates the mystery product in your store as a draft, with a SKU starting <code>MYS-</code>, and keeps its stock in step with the pool. Publish it to your storefront like any other product.</p>
     <p>On Free, mystery items can fill up to 25 orders a month. Mystery bundles and smart pools are on Pro: see <a href="#bundles">Mystery bundles</a>.</p>
@@ -61,10 +61,19 @@
       <li><strong>Variety:</strong> each bundle uses different products and colours while stock allows, and repeats an item only when the pool runs short.</li>
       <li><strong>Always include:</strong> tick it on a product to put one in every bundle, in the shopper's choice, such as a branded tote in every box. At least one item always stays a surprise, and the bundle sells only while every always-included product has stock.</li>
       <li><strong>Boxes left:</strong> each bundle needs that many units from the pool, so the mystery product's stock is the number of complete bundles the pool can fill.</li>
-      <li><strong>Smart pools:</strong> instead of hand-picking, choose a collection or tag. Products you add to it later join the pool automatically.</li>
+      <li><strong>Smart pools:</strong> filter the pool list by a collection or a tag and tick <strong>Keep the pool in sync</strong>. Products added to it later join the pool automatically, and removed ones leave. An always-included product stays in the pool even if it leaves the collection or tag, and Dodecahedron flags it so you can keep it or remove it.</li>
       <li><strong>Returns:</strong> when only part of a bundle comes back, you choose which items to restock. See <a href="#returns">Cancellations and returns</a>.</li>
     </ul>
     <p>If a store moves from Pro back to Free, its bundles show as sold out until it upgrades again. Mystery items keep selling.</p>
+
+    <h3 id="pick-methods">Pick methods (Pro)</h3>
+    <p>Each mystery product has a <strong>Pick method</strong> that decides which pool item ships first. On Free, picks are random, weighted by stock: any item can come up, and items with more stock come up more often. On Pro you can rank the pool instead, and the top-ranked item ships until it runs out:</p>
+    <ul>
+      <li><strong>Slowest sellers first:</strong> the most weeks of supply (stock divided by weekly sales) ships first.</li>
+      <li><strong>Longest unsold first:</strong> the item whose last sale was longest ago ships first.</li>
+      <li><strong>Highest or lowest margin first:</strong> retail price minus unit cost. Items with no cost in Shopify go last.</li>
+    </ul>
+    <p>Sales come from the last 60 days of orders, not counting internal <code>-mystery</code> orders, and update once a day. Items never sold in that time rank first for the sales methods. Bundles still mix products and colours first, and ties are broken at random. Use <strong>Simulate</strong> on the mystery product to see the effect. If a store moves back to Free, its products keep their pick method and use it again after upgrading.</p>
 
     <h2 id="fulfillment">Choosing how you fulfill</h2>
     <p>Within seconds of checkout, Dodecahedron tags the shopper's order <code>mystery-consolidated</code> and puts it on hold. It then creates an internal order named like <code>#1001-mystery</code>, priced at $0, with every item in one box: the picked items plus anything else the shopper bought. Ship that order, and its tracking is copied back to the shopper's order, which notifies the shopper as usual. The shopper only ever sees the mystery product.</p>
