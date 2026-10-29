@@ -278,13 +278,14 @@ p { margin: 0 0 1em; }
   -webkit-mask-image: linear-gradient(to right, #000 calc(50% - 530px), transparent calc(50% - 450px), transparent calc(50% + 450px), #000 calc(50% + 530px));
   mask-image: linear-gradient(to right, #000 calc(50% - 530px), transparent calc(50% - 450px), transparent calc(50% + 450px), #000 calc(50% + 530px)); }
 
-/* Footer: the grass and flowers from the bottom of the same image form its top edge, edge to edge; the links sit
+/* Footer: the grass and flowers from the bottom of the same image (ground.webp, doodles painted out) form its top edge, edge to edge; the links sit
    below the green patches. */
 .dodeca .site-footer { border-top: 0; padding-top: 0;
-  /* Below the horizon (the strip is 130/1672 of the width tall) the ground is solid, in the illustration's colour. */
-  background: linear-gradient(to bottom, transparent calc(100vw * 130 / 1672), var(--bg-image) calc(100vw * 130 / 1672)); }
+  /* Below the horizon the ground is solid, in the illustration's colour. The strip is 130/1672 of the width tall;
+     the fill starts 10px under it so rounding (100vw includes the scrollbar) can't leave a gap. */
+  background: linear-gradient(to bottom, transparent calc(100vw * 130 / 1672 - 10px), var(--bg-image) 0); }
 .dodeca .site-footer::before { content: ""; display: block; margin-bottom: 20px; aspect-ratio: 1672 / 130;
-  background: url(/assets/confetti.webp) center bottom / 100% auto no-repeat;
+  background: url(/assets/ground.webp) center bottom / 100% auto no-repeat;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%); mask-image: linear-gradient(to bottom, transparent, #000 45%); }
 
 /* Yes / no marks in tables. The word stays in the markup for screen readers. */
