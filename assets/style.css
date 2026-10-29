@@ -267,13 +267,14 @@ p { margin: 0 0 1em; }
 
 /* Confetti background: a fixed layer behind the page, faint at the top and more vivid as you scroll (--dd-scroll
    comes from dodeca.js; without it the layer stays faint). It's taller than the screen so the image's grass line
-   stays out of view: the grass belongs to the footer. Full strength in the side margins, softened behind the
-   central text column so confetti never sits on body copy at full colour. */
+   stays out of view: the grass belongs to the footer. It shows only in the side margins: the
+   mask is clear across the central 900px content column (fading in over the 80px outside it), so confetti never
+   sits behind text. On screens narrower than the column there are no margins, so no confetti. */
 .dd-bg { position: fixed; inset: 0 0 auto; height: 125vh; z-index: -1; pointer-events: none;
   background: url(/assets/confetti.webp) center top / cover no-repeat;
   opacity: calc(0.25 + 0.6 * var(--dd-scroll, 0)); filter: saturate(calc(0.35 + 0.65 * var(--dd-scroll, 0)));
-  -webkit-mask-image: linear-gradient(to right, #000 0 14%, rgb(0 0 0 / 0.3) 30% 70%, #000 86% 100%);
-  mask-image: linear-gradient(to right, #000 0 14%, rgb(0 0 0 / 0.3) 30% 70%, #000 86% 100%); }
+  -webkit-mask-image: linear-gradient(to right, #000 calc(50% - 530px), transparent calc(50% - 450px), transparent calc(50% + 450px), #000 calc(50% + 530px));
+  mask-image: linear-gradient(to right, #000 calc(50% - 530px), transparent calc(50% - 450px), transparent calc(50% + 450px), #000 calc(50% + 530px)); }
 
 /* Footer: the links, then the grass and flowers from the bottom of the same image, edge to edge. */
 .dodeca .site-footer { border-top: 0; padding-bottom: 0; }
