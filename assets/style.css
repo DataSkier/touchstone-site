@@ -45,6 +45,7 @@ img, svg { max-width: 100%; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 .narrow { max-width: 760px; }
+.narrow.doc { max-width: 900px; } /* long-form pages: help, pricing, privacy */
 
 /* Header and footer */
 .site-header { border-bottom: 1px solid var(--line); }
