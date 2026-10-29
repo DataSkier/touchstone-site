@@ -256,7 +256,9 @@ p { margin: 0 0 1em; }
 .dodeca .doc .lede { color: var(--text-body); }
 .dodeca .doc p, .dodeca .doc li { color: var(--text-body); }
 .dodeca .doc strong { color: var(--ink); }
-.dodeca .doc table { border-collapse: separate; border-spacing: 0; background: var(--white); border: var(--border); border-radius: var(--radius-card); }
+/* A real table at full width (the base .doc table is display: block for sideways scrolling, which leaves the rows
+   narrower than the border). Cells wrap instead, and long code breaks anywhere. */
+.dodeca .doc table { display: table; width: 100%; border-collapse: separate; border-spacing: 0; background: var(--white); border: var(--border); border-radius: var(--radius-card); }
 .dodeca .doc th, .dodeca .doc td { border-bottom: 1px solid var(--lavender); }
 .dodeca .doc tr:last-child td { border-bottom: 0; }
 .dodeca .doc th { background: var(--lavender); color: var(--ink); }
@@ -264,7 +266,7 @@ p { margin: 0 0 1em; }
 .dodeca .doc thead th:last-child { border-top-right-radius: calc(var(--radius-card) - 2px); }
 .dodeca .doc code { background: var(--lavender); color: var(--ink); }
 /* The plans table: fixed columns (40 / 30 / 30, set in its colgroup) at every width. */
-.dodeca .doc table.dd-plans { display: table; width: 100%; table-layout: fixed; }
+.dodeca .doc table.dd-plans { table-layout: fixed; }
 .dodeca .toc { border: var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); margin-bottom: 16px; }
 
 /* Confetti background: a fixed layer behind the page, faint at the top and more vivid as you scroll (--dd-scroll
