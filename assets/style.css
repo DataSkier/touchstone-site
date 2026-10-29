@@ -266,6 +266,26 @@ p { margin: 0 0 1em; }
 .dodeca .doc code { background: var(--lavender); color: var(--ink); }
 .dodeca .toc { border: var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); margin-bottom: 16px; }
 
+/* Confetti background: a fixed layer behind the page, faint at the top and more vivid as you scroll (--dd-scroll
+   comes from dodeca.js; without it the layer stays faint). It's taller than the screen so the image's grass line
+   stays out of view: the grass belongs to the footer. Full strength in the side margins, softened behind the
+   central text column so confetti never sits on body copy at full colour. */
+.dd-bg { position: fixed; inset: 0 0 auto; height: 125vh; z-index: -1; pointer-events: none;
+  background: url(/assets/confetti.webp) center top / cover no-repeat;
+  opacity: calc(0.25 + 0.6 * var(--dd-scroll, 0)); filter: saturate(calc(0.35 + 0.65 * var(--dd-scroll, 0)));
+  -webkit-mask-image: linear-gradient(to right, #000 0 14%, rgb(0 0 0 / 0.3) 30% 70%, #000 86% 100%);
+  mask-image: linear-gradient(to right, #000 0 14%, rgb(0 0 0 / 0.3) 30% 70%, #000 86% 100%); }
+
+/* Footer: the links, then the grass and flowers from the bottom of the same image, edge to edge. */
+.dodeca .site-footer { border-top: 0; padding-bottom: 0; }
+.dodeca .site-footer::after { content: ""; display: block; margin-top: 24px; aspect-ratio: 1672 / 130;
+  background: url(/assets/confetti.webp) center bottom / 100% auto no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%); mask-image: linear-gradient(to bottom, transparent, #000 45%); }
+
+/* Yes / no marks in tables. The word stays in the markup for screen readers. */
+.dd-mark { display: inline-flex; vertical-align: middle; }
+.dd-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
 @media (max-width: 640px) {
   .dd-hero { gap: 32px; padding-top: 16px; }
   .dd-chip { left: 12px; top: 12px; }
