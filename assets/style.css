@@ -263,6 +263,8 @@ p { margin: 0 0 1em; }
 .dodeca .doc thead th:first-child { border-top-left-radius: calc(var(--radius-card) - 2px); }
 .dodeca .doc thead th:last-child { border-top-right-radius: calc(var(--radius-card) - 2px); }
 .dodeca .doc code { background: var(--lavender); color: var(--ink); }
+/* The plans table: fixed columns (40 / 30 / 30, set in its colgroup) at every width. */
+.dodeca .doc table.dd-plans { display: table; width: 100%; table-layout: fixed; }
 .dodeca .toc { border: var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); margin-bottom: 16px; }
 
 /* Confetti background: a fixed layer behind the page, faint at the top and more vivid as you scroll (--dd-scroll
