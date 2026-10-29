@@ -294,6 +294,26 @@ p { margin: 0 0 1em; }
 .dd-mark { display: inline-flex; vertical-align: middle; }
 .dd-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
+/* Mobile menu. The nav is an HTML popover opened by the burger button (no script needed to open or close it;
+   tapping outside or Esc closes it). Wider than 720px the popover is ignored and the nav shows inline. */
+.dd-menu-toggle { display: none; padding: 4px; margin: -4px; border: 0; border-radius: 12px; background: none; cursor: pointer; }
+.dd-menu-toggle img { display: block; height: 40px; width: auto; }
+@media (min-width: 721px) {
+  .dodeca .site-nav[popover] { display: flex; position: static; inset: auto; width: auto; height: auto; margin: 0; padding: 0;
+    border: 0; background: none; color: inherit; overflow: visible; }
+}
+@media (max-width: 720px) {
+  .dodeca .site-header .wrap { flex-wrap: nowrap; }
+  .dd-menu-toggle { display: inline-flex; }
+  /* The site's own .site-nav display would otherwise beat the browser's "closed popovers are hidden" rule. */
+  .dodeca .site-nav[popover]:not(:popover-open) { display: none; }
+  .dodeca .site-nav:popover-open { position: fixed; inset: 84px 0 auto; width: 100%; height: auto; margin: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 24px 28px;
+    background: var(--lilac); color: var(--ink); border: 0; border-bottom: var(--border); }
+  .dodeca .site-nav:popover-open .dd-btn { margin-top: 12px; }
+  .dodeca .site-nav::backdrop { background: transparent; }
+}
+
 @media (max-width: 640px) {
   .dd-hero { gap: 32px; padding-top: 16px; }
   .dd-chip { left: 12px; top: 12px; }

@@ -18,3 +18,12 @@
   window.addEventListener("resize", onScroll);
   update();
 })();
+
+// Mobile menu: close it after a link is tapped (an in-page jump like "How it works" doesn't load a new page).
+(() => {
+  const menu = document.getElementById("site-menu");
+  if (!menu || !menu.hidePopover) return;
+  menu.addEventListener("click", (e) => {
+    if (e.target.closest("a") && menu.matches(":popover-open")) menu.hidePopover();
+  });
+})();
