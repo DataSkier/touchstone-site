@@ -276,9 +276,12 @@ p { margin: 0 0 1em; }
   -webkit-mask-image: linear-gradient(to right, #000 calc(50% - 530px), transparent calc(50% - 450px), transparent calc(50% + 450px), #000 calc(50% + 530px));
   mask-image: linear-gradient(to right, #000 calc(50% - 530px), transparent calc(50% - 450px), transparent calc(50% + 450px), #000 calc(50% + 530px)); }
 
-/* Footer: the links, then the grass and flowers from the bottom of the same image, edge to edge. */
-.dodeca .site-footer { border-top: 0; padding-bottom: 0; }
-.dodeca .site-footer::after { content: ""; display: block; margin-top: 24px; aspect-ratio: 1672 / 130;
+/* Footer: the grass and flowers from the bottom of the same image form its top edge, edge to edge; the links sit
+   below the green patches. */
+.dodeca .site-footer { border-top: 0; padding-top: 0;
+  /* Below the horizon (the strip is 130/1672 of the width tall) the ground is solid, in the illustration's colour. */
+  background: linear-gradient(to bottom, transparent calc(100vw * 130 / 1672), var(--bg-image) calc(100vw * 130 / 1672)); }
+.dodeca .site-footer::before { content: ""; display: block; margin-bottom: 20px; aspect-ratio: 1672 / 130;
   background: url(/assets/confetti.webp) center bottom / 100% auto no-repeat;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 45%); mask-image: linear-gradient(to bottom, transparent, #000 45%); }
 
