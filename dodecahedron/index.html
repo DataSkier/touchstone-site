@@ -3,70 +3,91 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dodecahedron · Touchstone Commerce</title>
-  <meta name="description" content="Dodecahedron is a Shopify app that clears aged inventory through mystery products: one price, the shopper's choice of size or fit, and an item from your pool.">
+  <title>Dodecahedron · Turn dead stock into delight</title>
+  <meta name="description" content="Dodecahedron bundles your slow-moving inventory into mystery products customers love to open.">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
-<body>
+<body class="dodeca">
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="/">
-        Touchstone Commerce
+      <a class="dd-logo" href="/dodecahedron/" aria-label="Dodecahedron home">
+        <svg width="36" height="36" viewBox="0 0 400 400" aria-hidden="true">
+          <polygon points="200,30 299.9,62.5 361.7,147.5 361.7,252.5 299.9,337.5 200,370 100.1,337.5 38.3,252.5 38.3,147.5 100.1,62.5" style="fill: var(--purple)"/>
+          <polygon points="200,122 274.2,175.9 245.8,263.1 154.2,263.1 125.8,175.9" style="fill: var(--coral)"/>
+        </svg>
+        <span class="dd-display">Dodecahedron</span>
       </a>
       <nav class="site-nav" aria-label="Main">
-        <a href="/dodecahedron/" aria-current="page">Dodecahedron</a>
+        <a href="#how">How it works</a>
+        <a href="/dodecahedron/pricing/">Pricing</a>
         <a href="/dodecahedron/help/">Help</a>
-        <a href="mailto:support@touchstonecommerce.com">Contact</a>
+        <a class="dd-btn dd-btn-dark" href="mailto:support@touchstonecommerce.com?subject=Dodecahedron%20early%20access">Install on Shopify</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">A Shopify app by Touchstone Commerce</span>
-        <div class="definition">
-          <h1>Dodecahedron</h1>
-          <p class="pron">[doh-dek-uh-<b>hee</b>-druhn] <i>noun</i></p>
-          <p class="sense">A solid with twelve faces, a golden ratio, a mystery inside.</p>
+    <section class="wrap dd-hero">
+      <div class="dd-hero-copy">
+        <span class="dd-eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+          Mystery products for Shopify
+        </span>
+        <h1>Turn dead stock<br>into <em>delight.</em></h1>
+        <p class="dd-lede">Dodecahedron bundles your slow-moving inventory into mystery products customers love to open. You recover value, they receive a surprise!</p>
+        <div class="dd-cta-row">
+          <a class="dd-btn dd-btn-lg dd-btn-primary" href="mailto:support@touchstonecommerce.com?subject=Dodecahedron%20early%20access">
+            Create your first mystery product
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="dd-btn dd-btn-lg dd-btn-outline" href="#how">See how it works</a>
         </div>
-        <p class="lede">
-          Clear aged inventory on your own store with mystery products. One product, one price you set. Shoppers choose
-          what matters, like size or fit, and receive a matching item from your pool of slow movers.
-        </p>
-        <div class="actions">
-          <a class="button" href="mailto:support@touchstonecommerce.com?subject=Dodecahedron%20early%20access">Request early access</a>
-          <a class="button secondary" href="/dodecahedron/help/">Read the setup guide</a>
+        <p class="dd-fineprint">Free plan · No credit card required</p>
+      </div>
+
+      <div class="dd-hero-visual">
+        <div class="dd-product-wrap">
+          <article class="dd-product-card">
+            <div class="dd-art">
+              <img src="/assets/mystery-box.jpg" width="1536" height="1024" alt="An open purple mystery box with a plush cat, a candy bar, a wrapped sweet, toy balls and a necklace on a gift card, surrounded by sparkles and confetti">
+            </div>
+            <div class="dd-body">
+              <span class="dd-tag">Mystery product</span>
+              <h2>The Surprise Pack</h2>
+              <p>Hand-picked from our shelves. What's inside? That's the fun part.</p>
+              <div class="dd-price-row">
+                <span class="dd-price">Free plan</span>
+                <a class="dd-btn dd-btn-dark" href="mailto:support@touchstonecommerce.com?subject=Dodecahedron%20early%20access">Try it Now</a>
+              </div>
+            </div>
+          </article>
+          <div class="dd-chip" aria-hidden="true">
+            <div class="dd-from">Back of shelf?</div>
+            <div class="dd-to">→ Back in a cart</div>
+          </div>
         </div>
-        <p class="muted" style="margin-top: 18px; font-size: 15px">Coming soon to the Shopify App Store.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <h2>How it works</h2>
-        <ol class="steps">
-          <li>
-            <h3>Build a pool</h3>
-            <p class="muted">Hand-pick aged products, or point Dodecahedron at a collection or tag and it keeps the pool up to date for you.</p>
-          </li>
-          <li>
-            <h3>Set one price</h3>
-            <p class="muted">Dodecahedron creates the mystery product in your store, with a choice of size or fit if you want one, and keeps its stock in step with the pool.</p>
-          </li>
-          <li>
-            <h3>Shoppers buy the mystery</h3>
-            <p class="muted">The moment an order comes in, Dodecahedron picks a matching item from the pool and reserves it. The shopper's order never shows what they'll get.</p>
-          </li>
-          <li>
-            <h3>You ship the surprise</h3>
-            <p class="muted">Your team or your 3PL ships everything in one box from an internal order that lists the real items, with tracking copied back to the shopper's order.</p>
-          </li>
-        </ol>
+    <section id="how" class="wrap dd-steps" aria-label="How it works">
+      <div class="dd-step">
+        <span class="dd-num dd-num-1">1</span>
+        <h2>Build the bundle</h2>
+        <p>Mix slow movers with fan favorites to increase perceived value.</p>
+      </div>
+      <div class="dd-step">
+        <span class="dd-num dd-num-2">2</span>
+        <h2>Merchandise the surprise</h2>
+        <p>Feature bundles everywhere, and let curiosity drive clicks.</p>
+      </div>
+      <div class="dd-step">
+        <span class="dd-num dd-num-3">3</span>
+        <h2>Clear shelves, fill carts</h2>
+        <p>Recoup revenue on dead stock. Deliver deals that feel like a gift.</p>
       </div>
     </section>
 
@@ -96,7 +117,7 @@
           </div>
           <div class="card">
             <h3>Sales report</h3>
-            <p class="muted">See revenue, units cleared and how much of their cost you recovered, week by week.</p>
+            <p class="muted">See revenue, units cleared and how much of their cost you recovered, for each mystery product.</p>
           </div>
         </div>
       </div>

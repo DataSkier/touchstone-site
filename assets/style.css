@@ -115,3 +115,142 @@ p { margin: 0 0 1em; }
 .doc code { font-size: 0.92em; background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; overflow-wrap: anywhere; }
 .toc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px; margin: 24px 0 8px; }
 .toc ul { margin: 0; }
+
+/* ------------------------------------------------------------------------------------------------
+   Dodecahedron brand (BRAND.md). Pages with <body class="dodeca"> take these tokens: the site's own
+   variables are redefined, so the shared header, footer, cards and links restyle themselves, and the
+   dd- components below draw only from tokens. Light only: the brand has no dark palette.
+   ------------------------------------------------------------------------------------------------ */
+.dodeca {
+  --purple: #6b2bff;          /* Electric Purple: primary accent */
+  --purple-deep: #4a16d6;     /* links, tag text */
+  --purple-darkest: #2e0c8f;  /* link hover */
+  --purple-soft: #8c5bff;
+  --lavender: #e6dcff;
+  --ink: #1b1033;             /* Midnight Ink: headings, borders, shadows */
+  --coral: #ff6b5e;
+  --lime: #d8f76a;
+  --yellow: #ffc23d;
+  --lilac: #f5f1ff;           /* Lilac Mist: page background */
+  --bg-image: #f1ecfc;        /* behind illustrations */
+  --white: #ffffff;
+  --text-body: #3b2e5c;       /* Plum Gray */
+  --text-muted: #5a4d78;      /* Muted Plum */
+
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --radius-pill: 999px;
+  --radius-card: 20px;
+  --radius-card-lg: 28px;
+  --border: 2px solid var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+  --shadow-lg: 10px 10px 0 var(--ink);
+  --shadow-btn: 0 6px 0 var(--ink);
+
+  /* The site's own variables, mapped to the brand. */
+  --bg: var(--lilac);
+  --surface: var(--white);
+  --text: var(--ink);
+  --muted: var(--text-muted);
+  --line: var(--ink);
+  --accent: var(--purple-deep);
+  --accent-soft: var(--lavender);
+  --accent-text: var(--white);
+  --radius: var(--radius-card);
+  --max: 1200px;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  color-scheme: light;
+  overflow-x: clip;
+}
+/* Keep the brand light even when the visitor's system is dark (the site's dark tokens would win otherwise). */
+@media (prefers-color-scheme: dark) {
+  .dodeca {
+    --bg: var(--lilac); --surface: var(--white); --text: var(--ink); --muted: var(--text-muted); --line: var(--ink);
+    --accent: var(--purple-deep); --accent-soft: var(--lavender); --accent-text: var(--white);
+  }
+}
+.dodeca a { color: var(--purple-deep); }
+.dodeca a:hover { color: var(--purple-darkest); }
+.dodeca :focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 6px; }
+.dodeca .wrap { padding-inline: 24px; }
+.dodeca h1, .dodeca h2, .dodeca .dd-display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.dodeca h3 { color: var(--ink); }
+.dodeca .muted { color: var(--text-body); }
+
+/* Header and footer, restyled to the brand. */
+.dodeca .site-header { border-bottom: 0; }
+.dodeca .site-header .wrap { min-height: 0; padding-block: 24px; }
+.dodeca .site-nav { align-items: center; gap: 8px; }
+.dodeca .site-nav a:not(.dd-btn) { padding: 12px 14px; font-weight: 500; font-size: 15px; color: var(--text-body); }
+.dodeca .site-nav a:not(.dd-btn):hover, .dodeca .site-nav a[aria-current="page"] { color: var(--ink); }
+.dodeca .site-footer { border-top: var(--border); color: var(--text-muted); }
+.dodeca .site-footer a { color: var(--text-muted); }
+
+.dd-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.dodeca .dd-logo, .dodeca .dd-logo:hover { color: var(--ink); }
+.dd-logo span { font-size: 22px; }
+
+/* Buttons */
+.dd-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; border-radius: var(--radius-pill);
+  font: 600 15px/1.2 var(--font); text-decoration: none; border: 0; cursor: pointer; transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.dodeca .dd-btn-dark, .dodeca .dd-btn-dark:hover { background: var(--ink); color: var(--white); }
+.dd-btn-lg { min-height: 56px; padding: 10px 28px; font-size: 18px; }
+.dodeca .dd-btn-primary { background: var(--purple); color: var(--white); font-weight: 700; box-shadow: var(--shadow-btn); }
+.dodeca .dd-btn-primary:hover { color: var(--white); transform: translateY(2px); box-shadow: 0 4px 0 var(--ink); }
+.dodeca .dd-btn-primary:active { transform: translateY(6px); box-shadow: 0 0 0 var(--ink); }
+.dodeca .dd-btn-outline { background: var(--white); color: var(--ink); border: var(--border); }
+.dodeca .dd-btn-outline:hover { color: var(--ink); background: var(--lilac); }
+
+/* Hero */
+.dd-hero { display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding-top: 40px; padding-bottom: 56px; }
+.dd-hero-copy { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
+.dd-eyebrow { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: var(--radius-pill);
+  background: var(--lime); color: var(--ink); font-weight: 600; font-size: 14px; }
+.dodeca .dd-hero h1 { margin: 0; font-size: clamp(52px, 7.5vw, 96px); line-height: 0.95; letter-spacing: -0.035em; }
+.dd-hero h1 em { font-style: normal; color: var(--purple); }
+.dd-lede { margin: 0; max-width: 520px; font-size: 20px; line-height: 1.5; color: var(--text-body); }
+.dd-cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.dd-fineprint { margin: 0; font-size: 14px; color: var(--text-muted); }
+
+.dd-hero-visual { flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-block: 24px; }
+.dd-product-wrap { position: relative; width: 100%; max-width: 420px; }
+.dd-product-card { background: var(--white); border: var(--border); border-radius: var(--radius-card-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+.dd-product-card .dd-art { background: var(--bg-image); border-bottom: var(--border); }
+.dd-product-card .dd-art img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.dd-product-card .dd-body { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 10px; }
+.dd-tag { align-self: flex-start; padding: 4px 10px; border-radius: var(--radius-pill); background: var(--lilac); color: var(--purple-deep); font-weight: 600; font-size: 13px; }
+.dodeca .dd-product-card h2 { margin: 0; font-size: 26px; }
+.dd-product-card p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--text-body); }
+.dd-price-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 6px; }
+.dd-price { font-weight: 700; font-size: 20px; color: var(--ink); }
+
+.dd-chip { position: absolute; left: -64px; top: 30%; padding: 12px 16px; border-radius: 16px; background: var(--white); border: var(--border);
+  box-shadow: var(--shadow-sm); font-size: 14px; line-height: 1.3; }
+.dd-chip .dd-from { font-weight: 500; color: var(--text-muted); }
+.dd-chip .dd-to { font-weight: 700; color: var(--ink); }
+
+/* How it works */
+.dd-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 72px; }
+.dd-step { padding: 24px; border-radius: var(--radius-card); background: var(--white); border: var(--border); display: flex; flex-direction: column; gap: 10px; }
+.dd-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); }
+.dodeca .dd-step h2 { margin: 0; font-size: 24px; }
+.dd-step p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--text-body); }
+.dd-num-1 { background: var(--lime); }
+.dd-num-2 { background: var(--yellow); }
+.dd-num-3 { background: var(--coral); }
+
+/* The rest of the page: cards and notes in the same sticker style. A section's first heading sits on the
+   section's own padding rather than adding the site's heading margin on top. */
+.dodeca .section h2:first-child { margin-top: 0; }
+.dodeca .card { border: var(--border); border-radius: var(--radius-card); }
+.dodeca .note { background: var(--lavender); border: var(--border); color: var(--ink); }
+
+@media (max-width: 640px) {
+  .dd-hero { gap: 32px; padding-top: 16px; }
+  .dd-chip { left: 12px; top: 12px; }
+  .dd-btn-lg { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dd-btn { transition: none; }
+}
