@@ -230,7 +230,8 @@ p { margin: 0 0 1em; }
 .dd-chip .dd-to { font-weight: 700; color: var(--ink); }
 
 /* How it works */
-.dd-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 72px; }
+/* Bottom padding + the next section's 32px top padding = the space above the steps (the hero's bottom padding). */
+.dd-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 32px; }
 .dd-step { padding: 24px; border-radius: var(--radius-card); background: var(--white); border: var(--border); display: flex; flex-direction: column; gap: 10px; }
 .dd-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); }
