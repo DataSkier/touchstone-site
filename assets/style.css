@@ -247,6 +247,24 @@ p { margin: 0 0 1em; }
 .dodeca .card { border: var(--border); border-radius: var(--radius-card); }
 .dodeca .note { background: var(--lavender); border: var(--border); color: var(--ink); }
 
+/* Dodecahedron long-form pages (help, pricing): the .doc layout in the brand's sticker style. */
+.dodeca .doc { padding-top: 40px; }
+.dodeca .doc .dd-eyebrow { display: flex; width: fit-content; margin-bottom: 20px; }
+.dodeca .doc h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 16px; }
+.dodeca .doc h2 { font-size: 28px; margin-top: 1.6em; }
+.dodeca .doc h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
+.dodeca .doc .lede { color: var(--text-body); }
+.dodeca .doc p, .dodeca .doc li { color: var(--text-body); }
+.dodeca .doc strong { color: var(--ink); }
+.dodeca .doc table { border-collapse: separate; border-spacing: 0; background: var(--white); border: var(--border); border-radius: var(--radius-card); }
+.dodeca .doc th, .dodeca .doc td { border-bottom: 1px solid var(--lavender); }
+.dodeca .doc tr:last-child td { border-bottom: 0; }
+.dodeca .doc th { background: var(--lavender); color: var(--ink); }
+.dodeca .doc thead th:first-child { border-top-left-radius: calc(var(--radius-card) - 2px); }
+.dodeca .doc thead th:last-child { border-top-right-radius: calc(var(--radius-card) - 2px); }
+.dodeca .doc code { background: var(--lavender); color: var(--ink); }
+.dodeca .toc { border: var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+
 @media (max-width: 640px) {
   .dd-hero { gap: 32px; padding-top: 16px; }
   .dd-chip { left: 12px; top: 12px; }

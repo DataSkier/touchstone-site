@@ -8,25 +8,33 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
 </head>
-<body>
+<body class="dodeca">
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="/">
-        Touchstone Commerce
+      <a class="dd-logo" href="/dodecahedron/" aria-label="Dodecahedron home">
+        <svg width="36" height="36" viewBox="0 0 400 400" aria-hidden="true">
+          <polygon points="200,30 299.9,62.5 361.7,147.5 361.7,252.5 299.9,337.5 200,370 100.1,337.5 38.3,252.5 38.3,147.5 100.1,62.5" style="fill: var(--purple)"/>
+          <polygon points="200,122 274.2,175.9 245.8,263.1 154.2,263.1 125.8,175.9" style="fill: var(--coral)"/>
+        </svg>
+        <span class="dd-display">Dodecahedron</span>
       </a>
       <nav class="site-nav" aria-label="Main">
-        <a href="/dodecahedron/">Dodecahedron</a>
+        <a href="/dodecahedron/#how">How it works</a>
+        <a href="/dodecahedron/pricing/" aria-current="page">Pricing</a>
         <a href="/dodecahedron/help/">Help</a>
-        <a href="mailto:support@touchstonecommerce.com">Contact</a>
+        <a class="dd-btn dd-btn-dark" href="mailto:support@touchstonecommerce.com?subject=Dodecahedron%20early%20access">Install on Shopify</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap narrow doc">
-    <span class="eyebrow">Dodecahedron pricing</span>
+    <span class="dd-eyebrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+      Dodecahedron pricing
+    </span>
     <h1>Pricing</h1>
     <p class="lede">Start free with mystery items. Move to Pro for bundles and unlimited orders. Every charge is billed through your Shopify bill, in US dollars.</p>
 
