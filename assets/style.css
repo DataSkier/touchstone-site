@@ -209,8 +209,8 @@ p { margin: 0 0 1em; }
 .dodeca .dd-hero h1 { margin: 0; font-size: clamp(52px, 7.5vw, 96px); line-height: 0.95; letter-spacing: -0.035em; }
 .dd-hero h1 em { font-style: normal; color: var(--purple); }
 .dd-lede { margin: 0; max-width: 520px; font-size: 20px; line-height: 1.5; color: var(--text-body); }
-/* Stacked, the secondary button sits well clear of the primary button's 6px shadow (24px of space below it). */
-.dd-cta-row { display: flex; flex-wrap: wrap; gap: 30px 16px; }
+/* Stacked, the secondary button sits clear of the primary button's 6px shadow (18px of space below it). */
+.dd-cta-row { display: flex; flex-wrap: wrap; gap: 24px 16px; }
 .dd-fineprint { margin: 0; font-size: 14px; color: var(--text-muted); }
 
 .dd-hero-visual { flex: 1 1 380px; min-width: 0; display: flex; justify-content: center; padding-block: 24px; }
