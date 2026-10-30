@@ -28,7 +28,7 @@
   <main class="wrap narrow doc">
     <span class="eyebrow">Legal</span>
     <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: October 26, 2026</p>
+    <p class="muted">Last updated: October 29, 2026</p>
 
     <p>
       Touchstone Commerce LLC ("Touchstone", "we", "us") makes Dodecahedron, an app for Shopify merchants. This policy
@@ -58,6 +58,11 @@
           <td>Products, variants, prices, unit costs and inventory levels</td>
           <td>To build mystery product pools, pick items and keep stock accurate</td>
           <td>Yes, for products in a pool</td>
+        </tr>
+        <tr>
+          <td>Sales history: how many units of each product variant sold per day, read from the store's orders (excluding cancelled and internal shipping orders)</td>
+          <td>To rank pool items for the sales-based pick methods (slowest sellers, longest unsold)</td>
+          <td>Yes: variant IDs, dates and unit counts only. The orders themselves, and anything about the shoppers who placed them, are not stored</td>
         </tr>
         <tr>
           <td>Mystery orders: order and line item IDs, order numbers, the items picked, SKUs, unit costs, payment and fraud-review status, fulfillment status, tracking numbers, refunds and returns (which lines are coming back)</td>
@@ -127,6 +132,7 @@
       <tbody>
         <tr><td>Store settings, mystery products and pools</td><td>While the app is installed. Deleted when Shopify asks us to erase the store's data, 48 hours after the merchant uninstalls.</td></tr>
         <tr><td>Mystery order records (order IDs and numbers, items shipped, SKUs, unit costs, tracking numbers)</td><td>180 days after the order, then deleted automatically. If the merchant uninstalls, deleted with the rest of the store's data 48 hours later, whatever their age.</td></tr>
+        <tr><td>Sales history (units sold per variant per day)</td><td>1 year, then deleted automatically. Deleted with the rest of the store's data 48 hours after uninstall.</td></tr>
         <tr><td>Processing queue entries (order IDs only)</td><td>7 days after processing, or 30 days if processing failed (or 48 hours after uninstall, if sooner).</td></tr>
         <tr><td>Audit records of sensitive actions (the action, the order ID, and the staff member's Shopify user ID)</td><td>1 year, or 48 hours after uninstall if sooner. We keep only a counts-only record that the store's data was erased.</td></tr>
         <tr><td>Shoppers' names, addresses and phone numbers</td><td>Never stored. They're copied from one order to another inside the merchant's Shopify store.</td></tr>
