@@ -86,10 +86,10 @@ p { margin: 0 0 1em; }
 .card p:last-child { margin-bottom: 0; }
 
 .product-card { display: grid; gap: 28px; grid-template-columns: 120px 1fr; align-items: center; padding: 32px; }
-.product-card svg { width: 120px; height: 120px; color: var(--accent); }
+.product-card > img { width: 120px; height: 120px; }
 @media (max-width: 600px) {
   .product-card { grid-template-columns: 1fr; }
-  .product-card svg { width: 88px; height: 88px; }
+  .product-card > img { width: 88px; height: 88px; }
 }
 
 .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
