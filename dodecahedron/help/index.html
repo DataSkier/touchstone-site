@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dodecahedron Help · Touchstone Commerce</title>
-  <meta name="description" content="Set up Dodecahedron: fulfillment, 3PL rules, returns, inventory and reporting.">
+  <meta name="description" content="Set up Dodecahedron: fulfillment, 3PL rules, the order page card, returns, inventory and reporting.">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +48,7 @@
         <li><a href="#fulfillment">Choosing how you fulfill</a></li>
         <li><a href="#3pl">Setting up your 3PL</a></li>
         <li><a href="#other-apps">Other apps that read your orders</a></li>
+        <li><a href="#order-card">The Connected Mystery Order card</a></li>
         <li><a href="#returns">Cancellations and returns</a></li>
         <li><a href="#inventory">How inventory works</a></li>
         <li><a href="#reports">Reports and reconciliation</a></li>
@@ -62,6 +63,7 @@
       <li>Build its pool: tick products in the list, narrowing it by collection, tag or search. To let shoppers pick an option such as size, choose it as the <strong>Variant type</strong>.</li>
       <li>Choose the location it ships from. Each location shows how many boxes the pool can fill there; the pool's stock must be at that location, or the mystery product shows as sold out.</li>
       <li>Click <strong>Simulate</strong> under Picking to see what a customer could get, then <strong>Create as draft</strong>.</li>
+      <li>Open any order in Shopify, click <strong>+ Block</strong> in the Blocks section and add <strong>Connected Mystery Order</strong>. You only do this once: from then on, every mystery order shows the real items right on its order page. See <a href="#order-card">The Connected Mystery Order card</a>.</li>
     </ol>
     <p>Dodecahedron creates the mystery product in your store as a draft, with a SKU starting <code>MYS-</code>, and keeps its stock in step with the pool. Publish it to your storefront like any other product.</p>
     <p>On Free, mystery items can fill up to 25 orders a month. Mystery bundles and smart pools are on Pro: see <a href="#bundles">Mystery bundles</a>.</p>
@@ -73,7 +75,7 @@
       <li><strong>Always include:</strong> tick it on a product to put one in every bundle, in the shopper's choice, such as a branded tote in every box. At least one item always stays a surprise, and the bundle sells only while every always-included product has stock.</li>
       <li><strong>Boxes left:</strong> each bundle needs that many units from the pool, so the mystery product's stock is the number of complete bundles the pool can fill.</li>
       <li><strong>Smart pools:</strong> filter the pool list by a collection or a tag and tick <strong>Keep the pool in sync</strong>. Products added to it later join the pool automatically, and removed ones leave. An always-included product stays in the pool even if it leaves the collection or tag, and Dodecahedron flags it so you can keep it or remove it.</li>
-      <li><strong>Returns:</strong> when only part of a bundle comes back, you choose which items to restock. See <a href="#returns">Cancellations and returns</a>.</li>
+      <li><strong>Returns:</strong> when only part of a bundle comes back, you tick which items arrived. See <a href="#returns">Cancellations and returns</a>.</li>
     </ul>
     <p>If a store moves from Pro back to Free, its bundles show as sold out until it upgrades again. Mystery items keep selling.</p>
 
@@ -122,28 +124,41 @@
     </ul>
     <p>For developers and integrations, Dodecahedron also saves a machine-readable record on each mystery order (field <code>mystery</code> in the app's namespace) listing its internal order and the real items shipped, with SKUs and unit costs.</p>
 
+    <h2 id="order-card">The Connected Mystery Order card</h2>
+    <p>Your team works in Shopify's Orders page, so Dodecahedron puts what they need there. On a mystery order, the <strong>Connected Mystery Order</strong> card shows what the shopper bought, the real items they receive and where each one is (to ship, shipped, return coming, returned), with a link to the internal <code>-mystery</code> order that ships them. When a return is on its way, the card has a <strong>Received</strong> button. On a <code>-mystery</code> order, the card explains what it is and links back to the shopper's order.</p>
+    <p><strong>Add it once:</strong> open any order, click <strong>+ Block</strong> in the Blocks section near the bottom of the page, and choose <strong>Connected Mystery Order</strong>. It then appears on every order. Only your staff see it: shoppers never do, and it isn't printed on packing slips.</p>
+
     <h2 id="returns">Cancellations and returns</h2>
     <h3>Cancellations</h3>
     <p>Cancel the shopper's order in Shopify as usual. Dodecahedron cancels the internal order if it hasn't shipped and puts the picked items back in stock. If the box already left, the order is flagged so you can follow up.</p>
     <h3>Returns</h3>
-    <p>When a shopper or a returns app (Loop, Happy Returns, Redo and similar) requests a return on a mystery order, Dodecahedron tags the order <code>mystery-return</code> and adds a note listing the real items coming back, their SKUs, the weight for the return label, and the <code>-mystery</code> order they shipped on.</p>
-    <p>Refund the shopper's order, not the <code>-mystery</code> order, and tick <strong>Restock</strong>.</p>
+    <p>The rule: <strong>the refund stays on the shopper's order, and stock follows the return.</strong> Use Shopify's <strong>Return</strong> button on the shopper's order (or a returns app such as Loop, Happy Returns or Redo), not a refund with Restock ticked.</p>
+    <ol>
+      <li><strong>A return is opened</strong> on the shopper's order. Dodecahedron tags the order <code>mystery-return</code> and opens a matching return on its <code>-mystery</code> order, listing the real items, so whoever receives the box receives it against the order that shipped. Nothing goes back in stock yet.</li>
+      <li><strong>The box arrives.</strong> Any one of these counts as received: <strong>Received</strong> on the Connected Mystery Order card or the mystery product's page, the shopper's return processed in Shopify (by you or your returns app), or the <code>-mystery</code> return processed in Shopify. The real items go back in stock once, at the location they shipped from; a second signal changes nothing.</li>
+      <li><strong>Refund</strong> the shopper's order as usual.</li>
+    </ol>
     <ul>
-      <li><strong>Everything came back:</strong> Dodecahedron restocks the real items automatically.</li>
-      <li><strong>Only part of a bundle came back:</strong> Shopify's refund doesn't say which items returned. The order shows "Return received" on the mystery product's page. Click <strong>Mark returned</strong> next to each item that's back on the shelf, using the SKUs on the returned items or your 3PL's return report. If nothing will go back in stock, for example because it arrived damaged, choose <strong>Dismiss</strong>.</li>
-      <li><strong>Your 3PL updates Shopify stock itself:</strong> 3PLs connected as a fulfillment service (ShipMonk, ShipBob and similar) count returned items into Shopify when they receive them, so Dodecahedron doesn't restock them too. If your 3PL is connected as a regular location and also syncs returns, tick <strong>My 3PL updates Shopify stock when it receives returns</strong> in Fulfillment setup.</li>
+      <li><strong>Only part of a bundle came back:</strong> tick the items that arrived, then press <strong>Received</strong>. On Free, Dodecahedron uses the most likely items.</li>
+      <li><strong>A refund with Restock and no return:</strong> Dodecahedron opens a return for those items instead of restocking right away, because some returns apps refund before the box ships back. Press Received once it arrives. Returns still open after 14 days show in Needs attention on the app's home page.</li>
+      <li><strong>Damaged or missing:</strong> process the return in Shopify as <strong>Not restocked</strong>. The items are marked returned and stay out of stock.</li>
+      <li><strong>Your 3PL updates Shopify stock itself:</strong> 3PLs connected as a fulfillment service (ShipMonk, ShipBob and similar) count returned items into Shopify when they receive them, so Dodecahedron only marks them returned. If your 3PL is connected as a regular location and also syncs returns, tick <strong>My 3PL updates Shopify stock when it receives returns</strong> in Settings → Returns.</li>
     </ul>
     <h3>Mystery product shows as sold out at a 3PL location</h3>
     <p>Shopify only sells stock online from locations in the product's shipping profile, and 3PL app locations (for example ShipMonk or ShipBob) aren't added automatically. In <strong>Settings → Shipping and delivery</strong>, open your shipping profile (usually General) and add the 3PL location under <strong>Fulfillment locations</strong>. If your shipping is managed in Markets, click <strong>Switch back</strong> on that page first.</p>
     <h3>Returns at a 3PL</h3>
-    <p>Returns apps send your 3PL the shopper's order, so the return lists a mystery SKU (starting <code>MYS-</code>) that your 3PL doesn't stock. Ask your 3PL to receive those returns against the matching <code>-mystery</code> order: a return on #1001 is received against #1001-mystery, which lists the items that shipped.</p>
+    <p>In <strong>Settings → Returns</strong>, choose who receives returned boxes:</p>
+    <ul>
+      <li><strong>Our 3PL, from Shopify returns:</strong> your 3PL picks up returns from Shopify. Dodecahedron's matching return on the <code>-mystery</code> order gives it the order it shipped and the real SKUs.</li>
+      <li><strong>Our 3PL, through a returns app or its own system:</strong> a returns app sends returns straight to your 3PL. Dodecahedron leaves the <code>-mystery</code> order alone, so your 3PL never gets two returns for one box. The return lists a mystery SKU (starting <code>MYS-</code>), so ask your 3PL to receive it against the matching <code>-mystery</code> order: a return on #1001 is received against #1001-mystery.</li>
+    </ul>
 
     <h2 id="inventory">How inventory works</h2>
     <ul>
       <li><strong>The mystery product's stock</strong> is the number of complete mystery orders the pool can fill at its location. It updates after every mystery order and pool change, and whenever a pool item's stock changes in Shopify, for example after a regular sale.</li>
       <li><strong>Picked items</strong> are removed from stock the moment the order comes in. Your inventory history shows the adjustment with a reference to the order.</li>
       <li><strong>Internal <code>-mystery</code> orders don't change inventory.</strong> The items were already removed when the shopper ordered.</li>
-      <li><strong>Restocks</strong> from cancellations and returns are recorded with reason "Restock" and a reference to the shopper's order.</li>
+      <li><strong>Restocks</strong> from cancellations and received returns are recorded with reason "Restock" and a reference to the shopper's order. A refund alone never restocks an item that shipped.</li>
     </ul>
 
     <h2 id="reports">Reports and reconciliation</h2>
