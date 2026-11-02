@@ -3,35 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy · Touchstone Commerce</title>
+  <title>Privacy Policy · Dodecahedron</title>
   <meta name="description" content="How Touchstone Commerce and the Dodecahedron Shopify app collect, use and protect data.">
   <link rel="icon" href="/assets/favicon.ico?v=2" sizes="32x32">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/assets/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy · Dodecahedron">
+  <meta property="og:description" content="How Touchstone Commerce and the Dodecahedron Shopify app collect, use and protect data.">
+  <meta property="og:image" content="https://touchstonecommerce.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dodecahedron: Turn dead stock into delight.">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=d8295af0">
+  <script src="/assets/dodeca.js?v=b319b63f" defer></script>
 </head>
-<body>
+<body class="dodeca">
+  <div class="dd-bg" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="/">
-        Touchstone Commerce
+      <a class="dd-logo" href="/dodecahedron/" aria-label="Dodecahedron home">
+        <img src="/assets/dodecahedron-mark.svg" width="44" height="44" alt="">
+        <span class="dd-display">Dodecahedron</span>
       </a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="/dodecahedron/">Dodecahedron</a>
+      <button class="dd-menu-toggle" type="button" popovertarget="site-menu" aria-label="Menu"><img src="/assets/menu-burger.webp" width="50" height="48" alt=""></button>
+      <nav class="site-nav" id="site-menu" popover aria-label="Main">
+        <a href="/dodecahedron/#how">How it works</a>
+        <a href="/dodecahedron/pricing/">Pricing</a>
         <a href="/dodecahedron/help/">Help</a>
-        <a href="mailto:support@touchstonecommerce.com">Contact</a>
+        <a class="dd-btn dd-btn-dark" href="mailto:support@touchstonecommerce.com?subject=Dodecahedron%20early%20access">Install on Shopify</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap narrow doc">
-    <span class="eyebrow">Legal</span>
+    <span class="dd-eyebrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+      Legal
+    </span>
     <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: October 30, 2026</p>
+    <p class="muted">Last updated: November 1, 2026</p>
 
     <p>
       Touchstone Commerce LLC ("Touchstone", "we", "us") makes Dodecahedron, an app for Shopify merchants. This policy
@@ -45,6 +61,11 @@
       We process that data only on the merchant's behalf, to provide the app's features, and following the merchant's
       instructions and Shopify's terms. Shoppers with questions about their own data should contact the store they
       bought from first; we will help the merchant respond.
+    </p>
+    <p>
+      We decide for ourselves how to handle a small amount of information about merchants, rather than following the
+      merchant's instructions: account and billing details, support emails, and the technical logs and security records
+      we keep to run and protect the app.
     </p>
 
     <h2>What we collect from a merchant's store</h2>
@@ -70,24 +91,30 @@
         <tr>
           <td>Mystery orders: order and line item IDs, order numbers, the items picked, SKUs, unit costs, payment and fraud-review status, fulfillment status, tracking numbers, refunds and returns (which items are coming back and whether they were restocked)</td>
           <td>To fill, ship, cancel and return mystery orders (including opening a matching return on the internal shipping order), and to produce sales and reconciliation reports</td>
-          <td>Yes. For payment and fraud status, we store only whether an order is waiting to ship, and why</td>
+          <td>Yes. For payment and fraud status, we store only whether an order is waiting to ship and a short reason (payment pending, fraud review, high fraud risk or cancelled), cleared once it ships. We never store card details, transaction details or Shopify's fraud analysis</td>
         </tr>
         <tr>
           <td>The shopper's shipping name, address and phone number on mystery orders (not used when the merchant chooses hidden-only fulfillment)</td>
           <td>To create the internal shipping order that the merchant's team or warehouse uses to deliver the box, and to keep its address up to date</td>
-          <td><strong>No.</strong> It is copied directly from one order to another inside the merchant's Shopify store, and never saved in our systems</td>
+          <td><strong>No.</strong> The app reads it from Shopify and copies it to the internal shipping order in the merchant's Shopify store while it works on the order. It is never saved in our database, logs or processing queue</td>
         </tr>
         <tr>
           <td>Merchant settings: fulfillment method, 3PL name, and mystery product configuration</td>
           <td>To run the app the way the merchant chose</td>
           <td>Yes</td>
         </tr>
+        <tr>
+          <td>Merchant staff: the Shopify user ID (a number, not a name or email) of the staff member who takes a sensitive action, such as marking a return or shipping a held order</td>
+          <td>So the merchant can see who did what, and to keep the app secure</td>
+          <td>Yes, in audit records</td>
+        </tr>
       </tbody>
     </table>
     <p>
-      <strong>We do not collect or store</strong> shoppers' email addresses, payment details or browsing
-      activity, and we do not store shoppers' names, addresses or phone numbers. Dodecahedron does not place cookies or tracking code on
-      the merchant's storefront.
+      <strong>Shoppers' names, addresses and phone numbers</strong> are used only while the app works on a mystery order,
+      as described above, and are never saved by us. <strong>We do not collect</strong> shoppers' email addresses,
+      payment details or browsing activity: the app doesn't ask Shopify for email addresses, so Shopify doesn't send them
+      to us. Dodecahedron does not place cookies or tracking code on the merchant's storefront.
     </p>
 
     <h3>Data we write to the merchant's store</h3>
@@ -106,8 +133,9 @@
     </ul>
     <p>We use data only for these purposes. We do not sell data, share it for advertising, or use it to build profiles of shoppers.</p>
     <p>
-      <strong>Artificial intelligence:</strong> Dodecahedron has no AI features. We never send shoppers' personal data to
-      an AI service, and we don't use store or customer data to train AI models. To investigate a security incident, we
+      <strong>Artificial intelligence:</strong> Dodecahedron doesn't use AI to provide its features or to make decisions
+      about orders or shoppers. We never send shoppers' personal data to an AI service, and we don't use store or
+      customer data to train AI models. Internally, to investigate a security incident, we
       may use AI tools, with training on our data turned off, to review code, error logs and minimized operational data
       such as order numbers and store domains. If any of this changes, we'll update this policy and tell merchants first.
     </p>
@@ -115,7 +143,8 @@
     <h2>Who we share data with</h2>
     <ul>
       <li><strong>Shopify</strong>, which provides the platform the app runs on.</li>
-      <li><strong>Infrastructure providers</strong> that host the app and its database for us, under agreements that require them to protect the data and use it only to provide their service.</li>
+      <li><strong>Render</strong> (Render Services, Inc.), which hosts the app and its database for us in the United States (Oregon), under an agreement that requires it to protect the data and use it only to provide its service. Merchants and shoppers outside the United States should know their store data is processed there.</li>
+      <li><strong>Google</strong> (Google Workspace), which hosts our support email. It receives only what people send us.</li>
       <li><strong>Authorities</strong>, when the law requires it, or to protect the rights and safety of our users or others.</li>
       <li><strong>A successor</strong>, if Touchstone is merged or acquired, under the same protections described here.</li>
     </ul>
@@ -123,8 +152,8 @@
 
     <h2>How we process order notifications</h2>
     <p>
-      Shopify notifies Dodecahedron when an order is placed or changes. Those notifications include customer details, but
-      we don't store them. Our processing queue keeps only the order's ID. When the app processes the order, it fetches
+      Shopify notifies Dodecahedron when an order is placed or changes. Those notifications can include the shopper's
+      name, shipping address and phone number, but we don't store them. Our processing queue keeps only the order's ID. When the app processes the order, it fetches
       the specific fields it needs from Shopify at that moment. Our logs record order IDs, counts and error codes, never
       customer details.
     </p>
@@ -143,8 +172,11 @@
       </tbody>
     </table>
     <ul>
+      <li><strong>When a shopper asks a store for a copy of their data,</strong> Shopify passes the request to us, and we send the merchant a list of the records we hold about that shopper's orders within 30 days.</li>
       <li><strong>When a shopper asks a store to erase their data,</strong> Shopify passes the request to us, and we delete the records we hold about that shopper's orders.</li>
-      <li><strong>Backups:</strong> our database backups are encrypted and allow recovery for up to 7 days, so deleted data can remain in a backup for up to 7 days after deletion before it's gone for good.</li>
+      <li><strong>When a merchant uninstalls,</strong> Shopify asks us to erase the store's data 48 hours later, and we delete everything we hold for that store.</li>
+      <li><strong>Backups:</strong> our database backups are encrypted and allow recovery for up to 7 days, so deleted data can remain in a backup for up to 7 days after deletion before it's gone for good. If we ever restore a backup, we delete again the data of any store that asked to be erased after the backup was made, and the automatic deletions above run again.</li>
+      <li><strong>Legal obligations:</strong> we keep data longer than shown above only when the law requires it, or to establish or defend a legal claim, and only the data that's needed for that, for as long as it's needed.</li>
     </ul>
 
     <h2>How we protect data</h2>
@@ -158,10 +190,14 @@
     <h2>Requests from merchants and shoppers</h2>
     <p>
       Merchants can ask us at any time what data we hold about their store, or ask us to delete it, by emailing
-      <a href="mailto:support@touchstonecommerce.com">support@touchstonecommerce.com</a>. Shoppers' requests to access or
-      erase their data reach us from Shopify through the merchant's store, and we respond to them as required. Depending
-      on where you live, you may have rights under laws such as the GDPR or the California Consumer Privacy Act, and we
-      will help merchants honor them.
+      <a href="mailto:support@touchstonecommerce.com">support@touchstonecommerce.com</a>.
+    </p>
+    <p>
+      Shoppers should send requests about their data to the store they bought from, because the merchant controls it.
+      Requests to access or erase it reach us from Shopify through the merchant's store, and we respond as described
+      above. A shopper can also email us, and we'll pass the request to the merchant and help them respond. Depending on
+      where you live, you may have rights under laws such as the GDPR or the California Consumer Privacy Act; some
+      requests may be limited by exceptions in those laws.
     </p>
 
     <h2>This website</h2>
@@ -179,6 +215,7 @@
     <h2>Contact</h2>
     <p>
       Touchstone Commerce LLC<br>
+      <!-- TODO before publishing: business mailing address, confirmed with the lawyer -->
       <a href="mailto:support@touchstonecommerce.com">support@touchstonecommerce.com</a>
     </p>
   </main>
