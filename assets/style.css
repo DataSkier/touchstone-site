@@ -247,6 +247,19 @@ p { margin: 0 0 1em; }
 .dodeca .card { border: var(--border); border-radius: var(--radius-card); }
 .dodeca .note { background: var(--lavender); border: var(--border); color: var(--ink); }
 
+/* FAQ: native <details> so every answer is in the HTML for search engines and AI crawlers, open or closed. */
+.dd-faq details { background: var(--white); border: var(--border); border-radius: var(--radius-card); box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+.dd-faq summary {
+  cursor: pointer; list-style: none; padding: 18px 22px; border-radius: 18px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font-weight: 700; font-size: 17px; color: var(--ink);
+}
+.dd-faq summary::-webkit-details-marker { display: none; }
+.dd-faq summary::after { content: "+"; font-size: 22px; line-height: 1; flex: none; }
+.dd-faq details[open] summary::after { content: "–"; }
+.dd-faq details p { margin: 0; padding: 0 22px 20px; font-size: 16px; line-height: 1.55; color: var(--text-body); }
+.dd-faq details a { font-weight: 600; }
+
 /* Dodecahedron long-form pages (help, pricing): the .doc layout in the brand's sticker style. */
 .dodeca .doc { padding-top: 40px; }
 .dodeca .doc .dd-eyebrow { display: flex; width: fit-content; margin-bottom: 20px; }
