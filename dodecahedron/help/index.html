@@ -55,6 +55,7 @@
       <ul>
         <li><a href="#start">Getting started: your first mystery item</a></li>
         <li><a href="#bundles">Mystery bundles</a></li>
+        <li><a href="#slots">Bundles slot by slot</a></li>
         <li><a href="#fulfillment">Choosing how you fulfill</a></li>
         <li><a href="#3pl">Setting up your 3PL</a></li>
         <li><a href="#other-apps">Other apps that read your orders</a></li>
@@ -68,8 +69,8 @@
     <h2 id="start">Getting started: your first mystery item</h2>
     <p>A mystery item sells one surprise item from a pool of your products. It's available on every plan, including Free.</p>
     <ol>
-      <li>Install Dodecahedron and answer one question: who packs your orders? Your team, a 3PL, or just you.</li>
-      <li>Create a mystery product. Give it a name and price, and leave <strong>Items per box</strong> at 1.</li>
+      <li>Install Dodecahedron and choose a plan on Shopify's plan page. Then answer one question: who packs your orders? Your team, a 3PL, or just you.</li>
+      <li>Go to <strong>Mystery products → New mystery product</strong>. Under <strong>What does each order ship?</strong> choose <strong>Mystery item</strong>, and give it a title and price.</li>
       <li>Build its pool: tick products in the list, narrowing it by collection, tag or search. To let shoppers pick an option such as size, choose it as the <strong>Variant type</strong>.</li>
       <li>Choose the location it ships from. Each location shows how many boxes the pool can fill there; the pool's stock must be at that location, or the mystery product shows as sold out.</li>
       <li>Click <strong>Simulate</strong> under Picking to see what a customer could get, then <strong>Create as draft</strong>.</li>
@@ -79,7 +80,12 @@
     <p>On Free, mystery products can fill up to 25 orders a month. Smart pools and pick methods are on Pro: see <a href="/dodecahedron/pricing/">pricing</a>.</p>
 
     <h2 id="bundles">Mystery bundles</h2>
-    <p>A mystery bundle ships several surprise items for one purchase. Set <strong>Items per box</strong> to 2 or more.</p>
+    <p>A mystery bundle ships several surprise items for one purchase. Choose <strong>Mystery bundle</strong>, then how to fill each box:</p>
+    <ul>
+      <li><strong>From one pool:</strong> a set number of items from one pool, like 3 surprise pairs of socks. Set <strong>Items per box</strong> to 2 or more.</li>
+      <li><strong>Slot by slot:</strong> one item from each slot you set up, like a hat, a shirt and socks. See <a href="#slots">Bundles slot by slot</a>.</li>
+    </ul>
+    <p>Bundles from one pool work like this:</p>
     <ul>
       <li><strong>Variety:</strong> each bundle uses different products and colours while stock allows, and repeats an item only when the pool runs short.</li>
       <li><strong>Always include:</strong> tick it on a product to put one in every bundle, in the shopper's choice, such as a branded tote in every box. At least one item always stays a surprise, and the bundle sells only while every always-included product has stock.</li>
@@ -87,7 +93,24 @@
       <li><strong>Smart pools:</strong> filter the pool list by a collection or a tag and tick <strong>Keep the pool in sync</strong>. Products added to it later join the pool automatically, and removed ones leave. An always-included product stays in the pool even if it leaves the collection or tag, and Dodecahedron flags it so you can keep it or remove it.</li>
       <li><strong>Returns:</strong> when only part of a bundle comes back, you tick which items arrived. See <a href="#returns">Cancellations and returns</a>.</li>
     </ul>
-    <p>If a store moves from Pro back to Free, its bundles show as sold out until it upgrades again. Mystery items keep selling.</p>
+    <p>Bundles are on every plan, including Free. Smart pools are on Pro.</p>
+
+    <h3 id="slots">Bundles slot by slot</h3>
+    <p>A slot-by-slot bundle, or mystery look, fills each box from several slots, each with its own pool: say a hat, a shirt, shorts and socks. Every box gets one of each, and what's in each slot stays a surprise.</p>
+    <ol>
+      <li>Choose <strong>Mystery bundle</strong>, then <strong>Slot by slot</strong>.</li>
+      <li>Under <strong>How many slots in each box?</strong> enter a number, up to 6. Name each slot, such as Hat. If a slot ships more than one item, such as 2 pairs of socks, set its <strong>Items per box</strong>.</li>
+      <li>Under <strong>Questions</strong>, add what shoppers choose, such as Shirt size, and the option it reads on your products, such as Size. You can add up to 3. In each slot, <strong>Shoppers choose</strong> sets which question it follows. Leave it on none when any item will do, like a beanie in any size.</li>
+      <li>Click <strong>Choose items</strong> on a slot to build its pool, then <strong>Done</strong>, then the next slot. One slot is open at a time.</li>
+      <li><strong>What can sell</strong> lists every combination of answers and how many boxes can fill it. Then <strong>Create as draft</strong>.</li>
+    </ol>
+    <ul>
+      <li><strong>Stock:</strong> a box sells only when every slot can fill it. If the shirt slot runs out of Large, Large shows as sold out, even while hats remain.</li>
+      <li><strong>Choices:</strong> each combination of answers becomes a variant of the mystery product, up to 250. The questions are the product's options, so they can't change after you create it. New answers, such as a size you add to a pool, are added automatically.</li>
+      <li><strong>Changing it later:</strong> on the mystery product's page, click <strong>Edit slots</strong> to change slots and pools.</li>
+      <li><strong>Orders:</strong> the Connected Mystery Order card and the order's staff note show each item with its slot name. The internal shipping order lists the real items, like any other.</li>
+      <li><strong>Plans:</strong> slot-by-slot bundles are on every plan. Smart pools for a slot are on Pro.</li>
+    </ul>
 
     <h3 id="pick-methods">Pick methods (Pro)</h3>
     <p>Each mystery product has a <strong>Pick method</strong> that decides which pool item ships first. On Free, picks are random, weighted by stock: any item can come up, and items with more stock come up more often. On Pro you can rank the pool instead, and the top-ranked item ships until it runs out:</p>
