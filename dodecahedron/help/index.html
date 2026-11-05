@@ -187,7 +187,12 @@
       <li><strong>Your 3PL updates Shopify stock itself:</strong> 3PLs connected as a fulfillment service (ShipMonk, ShipBob and similar) count returned items into Shopify when they receive them, so Dodecahedron only marks them returned. If your 3PL is connected as a regular location and also syncs returns, tick <strong>My 3PL updates Shopify stock when it receives returns</strong> in Settings → Returns.</li>
     </ul>
     <h3>Mystery product shows as sold out at a 3PL location</h3>
-    <p>Shopify only sells stock online from locations in the product's shipping profile, and 3PL app locations (for example ShipMonk or ShipBob) aren't added automatically. In <strong>Settings → Shipping and delivery</strong>, open your shipping profile (usually General) and add the 3PL location under <strong>Fulfillment locations</strong>. If your shipping is managed in Markets, click <strong>Switch back</strong> on that page first.</p>
+    <p>Shopify only sells stock online from locations your shipping covers, and 3PL app locations (for example ShipMonk or ShipBob) aren't added automatically. Make sure your shipping rates include the 3PL location:</p>
+    <ul>
+      <li><strong>Shipping set by market:</strong> in <strong>Markets</strong>, open each market you sell to and its <strong>Shipping</strong> rate. If the rate shows "No locations", or leaves out the 3PL, add the 3PL location to it.</li>
+      <li><strong>Shipping profiles:</strong> in <strong>Settings → Shipping and delivery</strong>, open your profile (usually General) and add the 3PL location under <strong>Fulfillment locations</strong>.</li>
+    </ul>
+    <p>On stores that use shipping profiles, Dodecahedron checks this for you and warns on the mystery product's page. On stores that set shipping by market, it reminds you when you choose a 3PL location for a new mystery product.</p>
     <h3>Returns at a 3PL</h3>
     <p>In <strong>Settings → Returns</strong>, choose who receives returned boxes:</p>
     <ul>
