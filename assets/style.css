@@ -231,6 +231,8 @@ p { margin: 0 0 1em; }
 
 /* How it works */
 /* Bottom padding + the next section's 32px top padding = the space above the steps (the hero's bottom padding). */
+.dd-video { max-width: 960px; margin: 0 auto; background: var(--white); border: var(--border); border-radius: var(--radius-card-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+.dd-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--white); }
 .dd-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 32px; }
 .dd-step { padding: 24px; border-radius: var(--radius-card); background: var(--white); border: var(--border); display: flex; flex-direction: column; gap: 10px; }
 .dd-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
