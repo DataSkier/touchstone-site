@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <!-- Consent defaults (Google Consent Mode v2), before Tag Manager. Banner and choices: /assets/consent.js -->
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+  gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied",region:["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE","IS","LI","NO","GB","CH"],wait_for_update:500});
+  gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:navigator.globalPrivacyControl?"denied":"granted"});
+  try{var tcc=localStorage.getItem("tc-consent");if(tcc)gtag("consent","update",{analytics_storage:tcc});}catch(e){}</script>
+  <script src="/assets/consent.js?v=20ad9bc9" defer></script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-NS47CZZ3");</script>
+  <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dodecahedron: Mystery Products for Shopify | Touchstone Commerce</title>
   <meta name="description" content="Dodecahedron is a Shopify app that bundles slow-moving inventory into mystery products. Shoppers see only the mystery product; your team or 3PL ships the real items in one sealed box.">
@@ -23,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=dab937ea">
+  <link rel="stylesheet" href="/assets/style.css?v=4c9b2832">
   <script src="/assets/dodeca.js?v=b319b63f" defer></script>
   <!-- FAQPage answers must match the visible #faq section word for word: edit both together. -->
   <script type="application/ld+json">
@@ -99,6 +108,9 @@
   </script>
 </head>
 <body class="dodeca">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS47CZZ3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div class="dd-bg" aria-hidden="true"></div>
   <header class="site-header">
     <div class="wrap">
@@ -268,6 +280,7 @@
         <a href="/dodecahedron/help/">Help</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
+        <button type="button" class="link-button" data-consent-open>Cookie settings</button>
         <a href="mailto:support@touchstonecommerce.com">support@touchstonecommerce.com</a>
       </nav>
     </div>

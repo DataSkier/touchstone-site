@@ -1,6 +1,6 @@
 // Stamp every page's links to the shared stylesheet and script with a hash of the file's contents
 // (style.css?v=1a2b3c4d). Browsers cache assets for up to 10 minutes on GitHub Pages; without the stamp a
-// visitor can get a new page with an old stylesheet. Run after changing assets/style.css or assets/dodeca.js:
+// visitor can get a new page with an old stylesheet. Run after changing assets/style.css, assets/dodeca.js or assets/consent.js:
 //   node tools/version-assets.cjs
 const fs = require("fs");
 const path = require("path");
@@ -8,7 +8,7 @@ const crypto = require("crypto");
 
 const root = path.join(__dirname, "..");
 const hash = (file) => crypto.createHash("sha1").update(fs.readFileSync(path.join(root, file))).digest("hex").slice(0, 8);
-const assets = { "assets/style.css": hash("assets/style.css"), "assets/dodeca.js": hash("assets/dodeca.js") };
+const assets = { "assets/style.css": hash("assets/style.css"), "assets/dodeca.js": hash("assets/dodeca.js"), "assets/consent.js": hash("assets/consent.js") };
 
 const pages = [];
 const walk = (dir) => {
