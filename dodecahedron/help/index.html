@@ -59,6 +59,7 @@
         <li><a href="#fulfillment">Choosing how you fulfill</a></li>
         <li><a href="#3pl">Setting up your 3PL</a></li>
         <li><a href="#other-apps">Other apps that read your orders</a></li>
+        <li><a href="#subscriptions">Subscriptions (Recharge and others)</a></li>
         <li><a href="#order-card">The Connected Mystery Order card</a></li>
         <li><a href="#returns">Cancellations and returns</a></li>
         <li><a href="#inventory">How inventory works</a></li>
@@ -165,6 +166,17 @@
       <li><strong>Shipping and label apps</strong> (ShipStation and similar): skip orders tagged <code>mystery-consolidated</code>. Those are the held originals; ship the <code>-mystery</code> order.</li>
     </ul>
     <p>For developers and integrations, Dodecahedron also saves a machine-readable record on each mystery order (field <code>mystery</code> in the app's namespace) listing its internal order and the real items shipped, with SKUs and unit costs.</p>
+
+    <h2 id="subscriptions">Subscriptions (Recharge and others)</h2>
+    <p>You can sell a mystery product as a subscription with Recharge or any other subscription app that uses Shopify's checkout.</p>
+    <ul>
+      <li><strong>Pay-per-delivery plans work today.</strong> Each renewal is a new mystery order: it gets its own pick from the pool and ships like any other. If a subscriber changes their size or other choice in their subscription portal, the next box matches it.</li>
+      <li><strong>Prepaid plans aren't supported yet.</strong> When a shopper pays up front for several deliveries, Dodecahedron doesn't pick or ship them. The order is tagged <code>mystery-prepaid</code>, and the Connected Mystery Order card asks you to pick one item from the pool for each delivery when it's due. Pool stock isn't set aside for those later deliveries.</li>
+      <li><strong>Renewals need pool stock.</strong> A pool of aged inventory is meant to sell out, and once it does, renewals can't be filled. A smart pool (<a href="#bundles">Mystery bundles</a>) keeps refilling as you tag more products. In Recharge, set out-of-stock orders to <strong>Create order only if inventory is available</strong>, so an empty pool skips the charge instead of charging for a box you can't send.</li>
+      <li><strong>Sales limits stop renewals too.</strong> Subscription apps check the mystery product's stock, so once a <a href="#limited">sales limit</a> is reached, renewals stop along with new sales.</li>
+      <li><strong>Don't delete a mystery product with active subscribers.</strong> Deleting archives it in Shopify, and renewals fail.</li>
+    </ul>
+    <p class="muted">Subscribers aren't guaranteed different items each time yet: the pick doesn't look at what someone received before.</p>
 
     <h2 id="order-card">The Connected Mystery Order card</h2>
     <p>Your team works in Shopify's Orders page, so Dodecahedron puts what they need there. On a mystery order, the <strong>Connected Mystery Order</strong> card shows what the shopper bought, the real items they receive and where each one is (to ship, shipped, return coming, returned), with a link to the internal <code>-mystery</code> order that ships them. When a return is on its way, the card has a <strong>Received</strong> button. On a <code>-mystery</code> order, the card explains what it is and links back to the shopper's order.</p>
