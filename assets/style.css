@@ -137,14 +137,14 @@ p { margin: 0 0 1em; }
   --text-body: #3b2e5c;       /* Plum Gray */
   --text-muted: #5a4d78;      /* Muted Plum */
 
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display: "Abril Fatface", Georgia, "Times New Roman", serif;
   --radius-pill: 999px;
-  --radius-card: 20px;
-  --radius-card-lg: 28px;
+  --radius-card: 6px;
+  --radius-card-lg: 8px;
   --border: 2px solid var(--ink);
   --shadow-sm: 4px 4px 0 var(--ink);
   --shadow-lg: 10px 10px 0 var(--ink);
-  --shadow-btn: 0 6px 0 var(--ink);
+  --shadow-btn: 0 5px 0 var(--ink);
 
   /* The site's own variables, mapped to the brand. */
   --bg: var(--lilac);
@@ -157,7 +157,7 @@ p { margin: 0 0 1em; }
   --accent-text: var(--white);
   --radius: var(--radius-card);
   --max: 1200px;
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   color-scheme: light;
   overflow-x: clip;
@@ -173,7 +173,7 @@ p { margin: 0 0 1em; }
 .dodeca a:hover { color: var(--purple-darkest); }
 .dodeca :focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 6px; }
 .dodeca .wrap { padding-inline: 24px; }
-.dodeca h1, .dodeca h2, .dodeca .dd-display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.dodeca h1, .dodeca h2, .dodeca .dd-display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.005em; color: var(--ink); }
 .dodeca h3 { color: var(--ink); }
 .dodeca .muted { color: var(--text-body); }
 
@@ -195,9 +195,9 @@ p { margin: 0 0 1em; }
   font: 600 15px/1.2 var(--font); text-decoration: none; border: 0; cursor: pointer; transition: transform 0.12s ease, box-shadow 0.12s ease; }
 .dodeca .dd-btn-dark, .dodeca .dd-btn-dark:hover { background: var(--ink); color: var(--white); }
 .dd-btn-lg { min-height: 56px; padding: 10px 28px; font-size: 18px; }
-.dodeca .dd-btn-primary { background: var(--purple); color: var(--white); font-weight: 700; box-shadow: var(--shadow-btn); }
-.dodeca .dd-btn-primary:hover { color: var(--white); transform: translateY(2px); box-shadow: 0 4px 0 var(--ink); }
-.dodeca .dd-btn-primary:active { transform: translateY(6px); box-shadow: 0 0 0 var(--ink); }
+.dodeca .dd-btn-primary { background: linear-gradient(120deg, var(--purple), var(--coral)); color: var(--white); font-weight: 700; border: var(--border); box-shadow: var(--shadow-btn); }
+.dodeca .dd-btn-primary:hover { color: var(--white); transform: translateY(2px); box-shadow: 0 3px 0 var(--ink); }
+.dodeca .dd-btn-primary:active { transform: translateY(5px); box-shadow: 0 0 0 var(--ink); }
 .dodeca .dd-btn-outline { background: var(--white); color: var(--ink); border: var(--border); }
 .dodeca .dd-btn-outline:hover { color: var(--ink); background: var(--lilac); }
 
@@ -206,7 +206,7 @@ p { margin: 0 0 1em; }
 .dd-hero-copy { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
 .dd-eyebrow { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: var(--radius-pill);
   background: var(--lime); color: var(--ink); font-weight: 600; font-size: 14px; }
-.dodeca .dd-hero h1 { margin: 0; font-size: clamp(52px, 7.5vw, 96px); line-height: 0.95; letter-spacing: -0.035em; }
+.dodeca .dd-hero h1 { margin: 0; font-size: clamp(52px, 7.5vw, 96px); line-height: 0.95; letter-spacing: -0.01em; }
 .dd-hero h1 em { font-style: normal; color: var(--purple); }
 .dd-lede { margin: 0; max-width: 520px; font-size: 20px; line-height: 1.5; color: var(--text-body); }
 .dd-cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -236,7 +236,7 @@ p { margin: 0 0 1em; }
 .dd-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-bottom: 32px; }
 .dd-step { padding: 24px; border-radius: var(--radius-card); background: var(--white); border: var(--border); display: flex; flex-direction: column; gap: 10px; }
 .dd-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); }
+  font-family: var(--font-display); font-weight: 400; font-size: 22px; color: var(--ink); }
 .dodeca .dd-step h2 { margin: 0; font-size: 24px; }
 .dd-step p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--text-body); }
 .dd-num-1 { background: var(--lime); }
@@ -311,14 +311,14 @@ p { margin: 0 0 1em; }
 /* Output: the simulate button, the order cards and the running totals. */
 .dd-try-out { display: flex; flex-direction: column; gap: 14px; padding: 16px; border-radius: 16px; background: var(--lilac); }
 .dd-try-out .dd-btn-primary { justify-content: center; }
-.dodeca .dd-try-out .dd-btn-primary:disabled { background: #b8a4f2; box-shadow: 0 6px 0 #b8a4f2; transform: none; cursor: not-allowed; }
+.dodeca .dd-try-out .dd-btn-primary:disabled { background: #b8a4f2; border-color: #b8a4f2; box-shadow: 0 5px 0 #b8a4f2; transform: none; cursor: not-allowed; }
 .dd-try-empty { margin: 0; padding: 28px 16px; border: 2px dashed #c4b5f2; border-radius: 14px; background: var(--white);
   text-align: center; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
 .dd-try-empty b { color: var(--ink); }
 .dd-split { display: grid; grid-template-columns: 1fr; justify-items: stretch; gap: 6px; }
 .dd-split-card { padding: 12px 14px; border: var(--border); border-radius: 14px; background: var(--white); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .dd-split-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
-.dd-split-card > b { font-family: var(--font-display); font-size: 20px; line-height: 1.2; color: var(--ink); }
+.dd-split-card > b { font-family: var(--font-display); font-weight: 400; font-size: 20px; line-height: 1.2; color: var(--ink); }
 .dd-split-card p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink); }
 .dd-split-sealed { align-self: flex-start; margin-top: 4px !important; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--yellow); font-weight: 600; font-size: 12px !important; }
 .dd-split-arrow { justify-self: center; font-size: 20px; font-weight: 800; line-height: 1; color: var(--purple); transform: rotate(90deg); }
@@ -341,7 +341,7 @@ p { margin: 0 0 1em; }
 .dd-slot { padding: 12px 14px; border: var(--border); border-radius: 14px; display: flex; flex-direction: column; gap: 10px; }
 .dd-slot-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .dd-slot-num { flex: none; width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--ink); background: var(--lime);
-  display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--ink); }
+  display: grid; place-items: center; font-family: var(--font-display); font-weight: 400; font-size: 14px; color: var(--ink); }
 .dd-slot:nth-child(2) .dd-slot-num { background: var(--yellow); }
 .dd-slot:nth-child(3) .dd-slot-num { background: var(--coral); }
 .dd-slot-name { flex: 1 1 8em; min-width: 0; max-width: 12em; padding: 2px 0; border: 0; border-bottom: 2px dashed #c4b5f2; background: transparent;
@@ -398,7 +398,7 @@ p { margin: 0 0 1em; }
 .dodeca .doc .dd-eyebrow { display: flex; width: fit-content; margin-bottom: 20px; }
 .dodeca .doc h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: -0.03em; margin-bottom: 16px; }
 .dodeca .doc h2 { font-size: 28px; margin-top: 1.6em; }
-.dodeca .doc h3 { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: -0.01em; }
+.dodeca .doc h3 { font-family: var(--font-display); font-weight: 400; font-size: 20px; letter-spacing: 0; }
 .dodeca .doc .lede { color: var(--text-body); }
 .dodeca .doc p, .dodeca .doc li { color: var(--text-body); }
 .dodeca .doc strong { color: var(--ink); }
