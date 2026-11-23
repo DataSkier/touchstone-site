@@ -8,10 +8,10 @@
   --accent: #1f5f5b;
   --accent-soft: #e4efed;
   --accent-text: #ffffff;
-  --radius: 14px;
+  --radius: 6px;
   --max: 1080px;
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --serif: "Abril Fatface", Georgia, "Times New Roman", serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,8 +61,8 @@ img, svg { max-width: 100%; }
 
 /* Type */
 h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 0.5em; }
-h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.4rem); }
-h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.6rem, 3vw, 2.1rem); margin-top: 1.8em; }
+h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 3vw, 2.1rem); margin-top: 1.8em; }
 h3 { font-size: 1.1rem; }
 p { margin: 0 0 1em; }
 .lede { font-size: 1.2rem; color: var(--muted); max-width: 640px; }
@@ -72,10 +72,10 @@ p { margin: 0 0 1em; }
 /* Dictionary-entry hero */
 .definition { max-width: 680px; }
 .definition h1 { font-size: clamp(2.8rem, 8vw, 4.6rem); margin-bottom: 0.1em; }
-.pron { font-family: var(--serif); font-size: 1.15rem; color: var(--muted); padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.pron { font-family: var(--font); font-size: 1.15rem; color: var(--muted); padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
 .pron b { font-weight: 600; color: var(--text); }
 .pron i { margin-left: 0.4em; }
-.sense { font-family: var(--serif); font-size: 1.45rem; line-height: 1.45; margin-bottom: 28px; }
+.sense { font-family: var(--font); font-size: 1.45rem; font-weight: 500; line-height: 1.45; margin-bottom: 28px; }
 
 /* Sections */
 .hero { padding: 88px 0 56px; }
