@@ -32,8 +32,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=4c9b2832">
+  <link rel="stylesheet" href="/assets/style.css?v=f6d97bb7">
   <script src="/assets/dodeca.js?v=b319b63f" defer></script>
+  <script src="/assets/dodeca-demo.js?v=84dfddea" defer></script>
   <!-- FAQPage answers must match the visible #faq section word for word: edit both together. -->
   <script type="application/ld+json">
   {
@@ -196,6 +197,29 @@
             <track kind="captions" src="/assets/dodecahedron-demo.vtt" srclang="en" label="English">
             <a href="/assets/dodecahedron-demo.mp4">Watch the Dodecahedron demo video</a>
           </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- Try-it demo: a mock of the app that simulates mystery orders in the browser. Everything is rendered by
+         /assets/dodeca-demo.js from made-up demo data; nothing is sent anywhere. -->
+    <section id="try" class="section" aria-labelledby="try-title">
+      <div class="wrap">
+        <h2 id="try-title">Try it: pack a mystery box</h2>
+        <p class="dd-try-lede">Simulate orders from a pool of slow movers, or set up an apparel look slot by slot. Click around, nothing here touches a real store.</p>
+        <div class="dd-window dd-try" data-dd-try>
+          <div class="dd-window-bar">
+            <span class="dd-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="dd-window-title">Dodecahedron</span>
+            <span class="dd-window-meta">demo data</span>
+          </div>
+          <div class="dd-tabs" role="tablist" aria-label="Demo" hidden>
+            <button type="button" role="tab" id="try-tab-pool" aria-controls="try-panel-pool">Item pool</button>
+            <button type="button" role="tab" id="try-tab-slots" aria-controls="try-panel-slots">Slot by slot</button>
+          </div>
+          <div class="dd-panel" role="tabpanel" id="try-panel-pool" aria-labelledby="try-tab-pool"></div>
+          <div class="dd-panel" role="tabpanel" id="try-panel-slots" aria-labelledby="try-tab-slots"></div>
+          <noscript><p class="dd-try-noscript">Turn on JavaScript to try the demo, or <a href="#demo">watch the video</a>.</p></noscript>
         </div>
       </div>
     </section>

@@ -243,6 +243,137 @@ p { margin: 0 0 1em; }
 .dd-num-2 { background: var(--yellow); }
 .dd-num-3 { background: var(--coral); }
 
+/* Try-it demo (Dodecahedron page, #try): a mock of the app window. dodeca-demo.js renders the panels and tabs;
+   without script the tab bar stays hidden and a <noscript> note shows instead. */
+.dd-try-lede { max-width: 640px; margin: 0 0 28px; font-size: 18px; line-height: 1.5; color: var(--text-body); }
+.dd-try-noscript { margin: 0; padding: 24px; color: var(--text-body); }
+
+.dd-window { background: var(--white); border: var(--border); border-radius: var(--radius-card); box-shadow: 6px 6px 0 var(--ink); overflow: hidden; }
+.dd-window-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: var(--border); background: var(--lilac);
+  font-size: 13px; line-height: 1.3; }
+.dd-dots { display: inline-flex; gap: 5px; flex: none; }
+.dd-dots i { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--coral); }
+.dd-dots i:nth-child(2) { background: var(--yellow); }
+.dd-dots i:nth-child(3) { background: var(--lime); }
+.dd-window-title { font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dd-window-meta { margin-left: auto; color: var(--text-muted); white-space: nowrap; }
+
+.dd-tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--lavender); }
+.dd-tabs[hidden] { display: none; }
+.dd-tabs button { flex: none; padding: 7px 14px; border: 0; border-radius: var(--radius-pill); background: transparent; cursor: pointer;
+  font: 600 14px/1.2 var(--font); color: var(--text-body); }
+.dd-tabs button:hover { background: var(--lilac); color: var(--ink); }
+.dd-tabs button[aria-selected="true"] { background: var(--ink); color: var(--white); }
+.dd-panel { padding: 20px; }
+.dd-panel:empty, .dd-panel[hidden] { display: none; }
+
+.dd-try-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.dd-try-setup { display: flex; flex-direction: column; gap: 14px; }
+.dd-badge { flex: none; padding: 3px 10px; border-radius: var(--radius-pill); background: var(--lavender); color: var(--purple-deep); font-weight: 600; font-size: 12px; line-height: 1.4; }
+.dd-badge-live { background: var(--lime); color: var(--ink); }
+.dd-badge-plain { background: var(--lilac); color: var(--text-muted); }
+
+/* Pick method: a real <select> dressed as the app's field. */
+.dd-select { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 4px 4px 14px; border: var(--border); border-radius: 12px; font-size: 14px; }
+.dd-select span { color: var(--text-muted); white-space: nowrap; }
+.dd-select select { min-width: 0; appearance: none; border: 0; border-radius: 8px; cursor: pointer; text-overflow: ellipsis;
+  padding: 7px 34px 7px 12px; font: 700 14px/1.2 var(--font); color: var(--ink);
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%236b2bff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 10px center; }
+.dd-select select:hover { background-color: var(--lilac); }
+.dd-select option { padding: 8px 12px; font-weight: 500; color: var(--ink); background: var(--white); }
+.dd-try-hint { margin: -4px 0 0; font-size: 13px; line-height: 1.45; color: var(--text-muted); }
+
+.dd-row-ctl { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--text-muted); }
+.dd-seg { display: inline-flex; border: var(--border); border-radius: 12px; overflow: hidden; background: var(--white); }
+.dd-seg button { min-width: 44px; padding: 7px 14px; border: 0; background: transparent; cursor: pointer; font: 700 14px/1.2 var(--font); color: var(--ink); }
+.dd-seg button + button { border-left: 2px solid var(--ink); }
+.dd-seg button:hover { background: var(--lilac); }
+.dd-seg button[aria-pressed="true"] { background: var(--ink); color: var(--white); }
+.dd-seg button small { display: block; margin-top: 2px; font-weight: 500; font-size: 11px; opacity: 0.8; }
+
+/* The pool, ranked in the order items ship. */
+.dd-rank { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.dd-rank li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 5px 6px; margin-inline: -6px;
+  border-radius: 10px; font-size: 14px; color: var(--ink); }
+.dd-rank li::before { content: attr(data-rank); grid-area: 1 / 1 / 3 / 2; width: 22px; height: 22px; border-radius: 6px; background: var(--lavender);
+  display: grid; place-items: center; font-weight: 700; font-size: 12px; color: var(--purple-deep); }
+.dd-rank li:first-child:not(.is-out)::before { background: var(--purple); color: var(--white); }
+.dd-rank label { grid-area: 1 / 2; display: flex; align-items: center; gap: 8px; min-width: 0; cursor: pointer; }
+.dd-rank label span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dd-rank input { flex: none; width: 16px; height: 16px; margin: 0; accent-color: var(--purple); cursor: pointer; }
+.dd-rank small { grid-area: 1 / 3; font-size: 12px; color: var(--text-muted); text-align: right; white-space: nowrap; }
+.dd-bar { grid-area: 2 / 2 / 3 / 4; height: 6px; border-radius: 3px; background: var(--lavender); position: relative; overflow: hidden; }
+.dd-bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--purple-soft); border-radius: 3px; transition: width 0.3s ease; }
+.dd-rank li.is-out { color: var(--text-muted); }
+.dd-rank li.is-out label span { text-decoration: line-through; text-decoration-color: rgba(27, 16, 51, 0.35); }
+.dd-rank li.is-shipped { animation: dd-flash 1.2s ease-out; }
+
+/* Output: the simulate button, the order cards and the running totals. */
+.dd-try-out { display: flex; flex-direction: column; gap: 14px; padding: 16px; border-radius: 16px; background: var(--lilac); }
+.dd-try-out .dd-btn-primary { justify-content: center; }
+.dodeca .dd-try-out .dd-btn-primary:disabled { background: #b8a4f2; box-shadow: 0 6px 0 #b8a4f2; transform: none; cursor: not-allowed; }
+.dd-try-empty { margin: 0; padding: 28px 16px; border: 2px dashed #c4b5f2; border-radius: 14px; background: var(--white);
+  text-align: center; font-size: 14px; line-height: 1.5; color: var(--text-muted); }
+.dd-try-empty b { color: var(--ink); }
+.dd-split { display: grid; grid-template-columns: 1fr; justify-items: stretch; gap: 6px; }
+.dd-split-card { padding: 12px 14px; border: var(--border); border-radius: 14px; background: var(--white); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.dd-split-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.dd-split-card > b { font-family: var(--font-display); font-size: 20px; line-height: 1.2; color: var(--ink); }
+.dd-split-card p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink); }
+.dd-split-sealed { align-self: flex-start; margin-top: 4px !important; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--yellow); font-weight: 600; font-size: 12px !important; }
+.dd-split-arrow { justify-self: center; font-size: 20px; font-weight: 800; line-height: 1; color: var(--purple); transform: rotate(90deg); }
+.dd-ship-list { list-style: none; margin: 2px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.dd-ship-list li { display: flex; align-items: baseline; gap: 10px; font-size: 14px; line-height: 1.4; color: var(--ink); }
+.dd-ship-list li::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--purple); transform: translateY(-1px); }
+.dd-ship-list li b { flex: none; min-width: 108px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--purple-deep); }
+.dd-split.is-fresh .dd-split-card { animation: dd-pop 0.35s ease-out both; }
+.dd-split.is-fresh .dd-split-card:last-child { animation-delay: 0.15s; }
+.dd-split.is-fresh .dd-ship-list li { animation: dd-pop 0.3s ease-out both; }
+.dd-split.is-fresh .dd-ship-list li:nth-child(1) { animation-delay: 0.3s; }
+.dd-split.is-fresh .dd-ship-list li:nth-child(2) { animation-delay: 0.42s; }
+.dd-split.is-fresh .dd-ship-list li:nth-child(3) { animation-delay: 0.54s; }
+.dd-try-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; font-size: 13px; color: var(--text-muted); }
+.dd-try-foot b { color: var(--ink); }
+.dd-link-btn { margin-left: auto; padding: 0; border: 0; background: none; cursor: pointer; font: 600 13px/1.4 var(--font); color: var(--purple-deep); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Slot by slot. */
+.dd-slots { display: flex; flex-direction: column; gap: 12px; }
+.dd-slot { padding: 12px 14px; border: var(--border); border-radius: 14px; display: flex; flex-direction: column; gap: 10px; }
+.dd-slot-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.dd-slot-num { flex: none; width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--ink); background: var(--lime);
+  display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--ink); }
+.dd-slot:nth-child(2) .dd-slot-num { background: var(--yellow); }
+.dd-slot:nth-child(3) .dd-slot-num { background: var(--coral); }
+.dd-slot-name { flex: 1 1 8em; min-width: 0; max-width: 12em; padding: 2px 0; border: 0; border-bottom: 2px dashed #c4b5f2; background: transparent;
+  font: 700 16px/1.3 var(--font); color: var(--ink); }
+.dd-slot-name:hover, .dodeca .dd-slot-name:focus-visible { border-bottom-color: var(--purple); outline: 0; border-radius: 0; }
+.dd-slot-head .dd-badge { margin-left: auto; }
+.dd-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dd-chip-btn { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px 5px 9px; border: 1.5px solid var(--purple-deep); border-radius: var(--radius-pill);
+  background: var(--lavender); cursor: pointer; font: 600 13px/1.3 var(--font); color: var(--ink); }
+.dd-chip-btn::before { content: "✓"; font-weight: 800; color: var(--purple-deep); }
+.dd-chip-btn small { font-weight: 500; font-size: 12px; color: var(--text-muted); }
+.dd-chip-btn[aria-pressed="false"] { background: var(--white); border-style: dashed; border-color: #b0a5c6; color: var(--text-muted); }
+.dd-chip-btn[aria-pressed="false"]::before { content: "+"; color: var(--text-muted); }
+.dd-chip-btn:hover { border-color: var(--ink); }
+.dd-chip-btn.is-shipped { animation: dd-flash 1.2s ease-out; }
+.dd-slot-foot { margin: 0; font-size: 12px; color: var(--text-muted); }
+
+@keyframes dd-pop { from { opacity: 0; transform: translateY(6px) scale(0.98); } }
+@keyframes dd-flash { from { background: var(--lime); } }
+
+@media (max-width: 820px) {
+  .dd-try-grid { grid-template-columns: minmax(0, 1fr); }
+  .dd-panel { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .dd-window-meta { display: none; }
+  .dd-slot-head .dd-badge { margin-left: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dd-try *, .dd-try *::before, .dd-try *::after { animation: none !important; transition: none !important; }
+}
+
 /* The rest of the page: cards and notes in the same sticker style. A section's first heading sits on the
    section's own padding rather than adding the site's heading margin on top. */
 .dodeca .section h2:first-child { margin-top: 0; }
